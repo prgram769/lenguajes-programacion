@@ -1,0 +1,67 @@
+Primera Sesión: variables, constantes, tipos de datos, expresiones y operadores.
+Instrucciones de entrada y salida.
+
+-1. Escriba un programa que muestre en la pantalla un mensaje de saludo, por ejemplo
+"Hola",y luego muestre el mensaje "Por favor introduzca el año en que nació". El
+programa debe leer ese valor y almacenarlo en una variable de tipo entero llamada
+fecha. Por último haga que el programa escriba la frase " Si usted nació en <valor de la
+fecha leída> este año cumple <edad calculada> años.
+Es recomendable que vaya escribiendo el programa por pasos (mostrar saludo, pedir
+fecha, leer fecha,…) y compilándolo después de cada paso para comprobar que
+funciona.
+
+-2. Escriba un programa en el que se declaren tres variables, a, b y c y se asigne a esas
+variables los valores 5, 7 y 9 respectivamente. El programa deberá entonces calcular
+su suma y mostrar el resultado. Modifíquelo para que los valores de las variables sean
+introducidos por el usuario.
+
+-3. Escriba un programa que calcule el interés que se obtiene por un determinado dinero
+depositado en un banco. Para ello el programa preguntará por el capital inicial y por el
+tipo de interés.
+
+-4. Escriba un programa que calcule el área de un triángulo rectángulo, pidiendo al
+usuario la altura y la base. La salida por pantalla debe ser "Un triangulo rectángulo de
+altura ____ y base ____, tiene un área de ____" (sustituyendo los espacios en blanco
+por los valores)
+NOTA area = (base * altura)/2
+
+-5. Escriba un programa que calcule el perímetro de una circunferencia.
+NOTA perimetro = 2 * PI * r). Se recomienda definir PI como una constante
+usando la directiva define.
+
+-6. Dado el siguiente fragmento de código, identifique las declaraciones de variables, las
+instrucciones de asignación, los operadores y las expresiones. ¿Cuál será el resultado
+de evaluar esas expresiones?
+int i1, i2, i3;
+float r1, r2, r3;
+i1=12;
+i2=5;
+r1=12.0;
+r2 =5;
+r3= r1/r2;
+r3=i1/i2;
+i3=i1/r2;
+
+-7. Escriba un programa que calcule el resto de la división de dos números enteros. Para
+ello utilice el operador módulo (%).
+
+-8. Escriba un programa que pida un tiempo en segundos y lo muestre convertido a
+minutos y segundos.
+
+-9. Escriba un programa que pregunte al usuario su edad, y luego compruebe si es mayor
+de 21 años. Si es mayor deberá escribir un 1 y si es menor un 0. El ejercicio se debe
+resolver usando operadores relacionales.
+Recuerde que el resultado de evaluar una expresión verdadera en C (por ejemplo 7>5)
+es 1, y el de evaluar una falsa (7<5) es 0.
+
+-10. Escriba un programa en el que se declaren dos variables, a y b, se pida un valor para
+cada una de ellas, y se intercambien dichos valores.
+
+-11. Escriba un programa en C que convierta euros a dolares (1 euro = 1.286 dolares) y a
+libras esterlinas (1 euro = 0,865 libras). Imprima los resultados por pantalla.
+
+-12. Indique cuáles de estas instrucciones son correctas y cuáles incorrectas, e indique cuál
+es el resultado de su ejecución.
+i=i+1;
+printf("%d", 4+20);
+printf("suma=var_uno + var_dos = %i + %i", var_uno, var_dos, suma);
