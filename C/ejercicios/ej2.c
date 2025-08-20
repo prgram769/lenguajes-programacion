@@ -6,5 +6,17 @@ introducidos por el usuario.*/
 #include <stdio.h>
 
 int main(void) {
+    int a;
+    int b;
+    int c;
+
+    printf("Tu trabajo como usuario es darme el valor de 3 variables: a, b y c así que me los darás en este orden.\n\n");
     
+    scanf("%d", &a);
+    scanf("%d", &b);
+    scanf("%d", &c);
+
+    int sum = a + b + c;
+
+    printf("\nLa suma de estas 3 variables introducidas por el usuario es: %d", sum);
 }
