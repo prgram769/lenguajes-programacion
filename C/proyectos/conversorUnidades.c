@@ -49,12 +49,46 @@ float temp() {
         return 0;
     } else {
         printf("Debes seleccionar una opcion valida.");
-    }
-    
+    }  
 }
 
 float dist() {
 
+    int option;
+
+    printf("--Distancia--\n\n");
+    printf("1. Convertir kilometros a millas.\n 2. Convertir millas a kilometros.\n 3. Salir.\n\n");
+
+    scanf("%d", &option);
+
+    if (option == 1)
+    {
+        float kilometers;
+
+        printf("Ingresa la cantidad de kilometros que quieres convertir a millas: \n\n");
+        
+        scanf("%g", kilometers);
+
+        float convertion = kilometers * 0.621371;
+
+        printf("Tu cantidad inicial: %g Km en millas es: %g M.");
+    } else if (option == 2)
+    {
+        float miles;
+
+        printf("Ingresa la cantidad de millas que quieres convertir a kilometros: \n\n");
+
+        scanf("%g", miles);
+
+        float convertion = miles * 1.60934;
+
+        printf("Tu cantidad inicial: %g M en kilometros es: %g Km.");
+    } else if (option == 3)
+    {
+        return 0;
+    } else {
+        printf("Ingresa una opcion valida.");
+    }
 }
 
 float weight() {
@@ -76,7 +110,7 @@ int main(void) {
         temp();
         break;
     case 2:
-
+        dist();
         break;
 
     case 3:
