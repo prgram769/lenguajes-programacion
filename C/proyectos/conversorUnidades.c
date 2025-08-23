@@ -17,7 +17,7 @@ float temp() {
 
     int option;
 
-    printf("--Temperatura--\n\n");
+    printf("\n--Temperatura--\n\n");
     printf("1. Convertir de Celsius a Fahrenheit.\n 2. Convertir de Fahrenheit a Celsius.\n 3. Salir.\n\n");
 
     scanf("%d", &option);
@@ -26,24 +26,24 @@ float temp() {
     {
         float degrees;
 
-        printf("Inserta la cantidad de grados Celsius que quieres cambiar a grados Fahrenheit: \n\n");
+        printf("\nInserta la cantidad de grados Celsius que quieres cambiar a grados Fahrenheit: \n\n");
 
-        scanf("%g", &degrees);
+        scanf("%f", &degrees);
 
         float convertion = degrees * 9 / 5 + 32;
 
-        printf("Tu cantidad inicial: %g ºC en Fahrenheit es de: %g ºF", degrees, convertion);
+        printf("\nTu cantidad inicial: %.2f ºC en Fahrenheit es de: %.2f ºF", degrees, convertion);
     } else if (option == 2)
     {
         float degrees;
 
-        printf("Inserta la cantidad de grados Fahrenheit que quieres convertir a grados Celsius: \n\n");
+        printf("\nInserta la cantidad de grados Fahrenheit que quieres convertir a grados Celsius: \n\n");
 
-        scanf("%g", &degrees);
+        scanf("%f", &degrees);
 
         float convertion = (degrees - 32) * 5 / 9;
         
-        printf("Tu cantidad inicial: %g ºF en Celsius es de: %g ºC", degrees, convertion);
+        printf("\nTu cantidad inicial: %.2f ºF en Celsius es de: %.2f ºC", degrees, convertion);
     } else if (option == 3)
     {
         return 0;
@@ -56,7 +56,7 @@ float dist() {
 
     int option;
 
-    printf("--Distancia--\n\n");
+    printf("\n--Distancia--\n\n");
     printf("1. Convertir kilometros a millas.\n 2. Convertir millas a kilometros.\n 3. Salir.\n\n");
 
     scanf("%d", &option);
@@ -65,24 +65,24 @@ float dist() {
     {
         float kilometers;
 
-        printf("Ingresa la cantidad de kilometros que quieres convertir a millas: \n\n");
+        printf("\nIngresa la cantidad de kilometros que quieres convertir a millas: \n\n");
         
-        scanf("%g", &kilometers);
+        scanf("%f", &kilometers);
 
         float convertion = kilometers * 0.621371;
 
-        printf("Tu cantidad inicial: %g Km en millas es: %g M.");
+        printf("\nTu cantidad inicial: %.2f Km en millas es: %.2f M.", kilometers, convertion);
     } else if (option == 2)
     {
         float miles;
 
-        printf("Ingresa la cantidad de millas que quieres convertir a kilometros: \n\n");
+        printf("\nIngresa la cantidad de millas que quieres convertir a kilometros: \n\n");
 
-        scanf("%g", &miles);
+        scanf("%f", &miles);
 
         float convertion = miles * 1.60934;
 
-        printf("Tu cantidad inicial: %g M en kilometros es: %g Km.");
+        printf("\nTu cantidad inicial: %.2f M en kilometros es: %.2f Km.", miles, convertion);
     } else if (option == 3)
     {
         return 0;
@@ -94,7 +94,7 @@ float dist() {
 float weight() {
     int option;
 
-    printf("--Peso--\n\n");
+    printf("\n--Peso--\n\n");
     printf("1. Convertir kilogramos a libras.\n 2. Convertir libras a kilogramos.\n 3. Salir\n\n");
 
     scanf("%d", &option);
@@ -103,24 +103,24 @@ float weight() {
     {
         float kilograms;
 
-        printf("Ingresa la cantidad de kilogramos que quieres convertir a libras: \n\n");
+        printf("\nIngresa la cantidad de kilogramos que quieres convertir a libras: \n\n");
 
-        scanf("%g", &kilograms);
+        scanf("%f", &kilograms);
 
         float convertion = kilograms * 2.20462;
 
-        printf("Tu cantidad inicial: %g Kg en libras es: %g L.");
+        printf("\nTu cantidad inicial: %.2f Kg en libras es: %.2f L.", kilograms, convertion);
     } else if (option == 2)
     {
         float pounds;
 
-        printf("Ingresa la cantidad de libras que quieres convertir a kilogramos: \n\n");
+        printf("\nIngresa la cantidad de libras que quieres convertir a kilogramos: \n\n");
 
-        scanf("%g", &pounds);
+        scanf("%f", &pounds);
 
         float convertion = pounds * 0.453592;
 
-        printf("Tu cantidad inicial: %g L en kilogramos es: %g Kg.");
+        printf("\nTu cantidad inicial: %.2f L en kilogramos es: %.2f Kg.", pounds, convertion);
     } else if (option == 3)
     {
         return 0;
