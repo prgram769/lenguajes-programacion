@@ -1,0 +1,81 @@
+-1. Escriba un programa que lea un número entero y escriba un mensaje si el número es
+mayor que 100
+
+-2. Escriba un programa en C que pida dos números enteros al usuario, y determine si el
+primero es divisible entre el segundo.
+
+-3. Escriba un programa en C que pida un número al usuario e indique si es par o impar.
+En caso de que sea par indicar si es o no múltiplo de 3.
+
+-4. Escriba un programa en C que pida dos números enteros al usuario, y determine cuál es
+mayor, el primero o el segundo. Modifíquelo para considerar también la posibilidad de
+que sean iguales.
+
+-5. Escriba un programa en C que muestre por pantalla el valor de una entrada de cine en
+función de los años de la persona. Así, el precio es de 7 Euros, pero si el usuario tiene
+menos de 5 años se aplica un 60% de descuento, y si es mayor de 60 años, se aplicará
+un descuento del 55 %. El precio de la entrada se debe declarar como una constante.
+
+-6. Dada la función f(x), realizar un programa C que calcule dicha función para un valor
+dado de x y lo muestre por pantalla.
+     {
+        x + 3 para x ≤ 0
+f(x)
+        x2 + 2x para x > 0
+     }
+        
+-7. Escriba un programa que solicite al usuario tres números enteros de una cifra y muestre
+el mensaje "acceso permitido" si los números introducidos son “1”, “2” y “3”
+
+-8. Escriba un programa que solicite un número, y si éste es de dos cifras, muestre por
+pantalla los siguientes valores:
+ Suma de sus dos dígitos.
+ Cuántos de sus dígitos son pares.
+Nota: para saber si es de dos cifras, compárelo con 9 y 99. Para calcular los dígitos use
+la división entera y el resto.
+
+-9. Escriba un programa en C que permita introducir 5 números enteros por teclado y
+muestre el menor de ellos.
+
+-10. Escriba un programa en C que, introducidos por teclado tres valores enteros, los
+muestre en pantalla de mayor a menor.
+
+-11. Escriba un programa en C que lea un carácter y utilizando la instrucción switch
+determine si es o no una vocal. Realice el mismo ejercicio utilizando la sentencia if
+¿Qué opción es mejor?
+
+-12. Escriba un programa que pida al usuario un número entre el uno y el siete y muestre un
+mensaje con el nombre del día correspondiente
+
+-13. Escriba un programa en C que muestre el siguiente menú:
+CALCULO DE AREAS
+===========================
+1 - Calcular el área de un triángulo
+2 - Calcular el área de un trapecio
+3 - Calcular el área de un rectángulo
+Tras mostrar el menú, se solicitará al usuario que seleccione una opción. En función de
+la opción seleccionada el programa deberá pedir los datos necesarios para calcular el
+área, realizar el cálculo y mostrar el resultado por pantalla.
+Nota: Recuerde que para usar la función raíz cuadrada (sqrt) debe incluir la librería
+math.h.
+
+-14. Escriba un programa en C que calcule el salario semanal de un trabajador, a partir de
+las horas trabajadas y el precio cobrado por hora. Ambos valores deben ser solicitados
+al usuario. La jornada normal es de 40 horas semanales. Las horas extra se pagan un
+cincuenta por ciento más caras que las normales, y pasan a pagarse al doble que las
+normales a partir de las 50 horas trabajadas.
+
+-15. Escribir un programa que reciba un número de una carta de una baraja española e
+imprima por pantalla: “As” si es un 1, “Sota”, si es un 10, “Caballo” si es un 11y “Rey”
+si es un 12. Para números de cartas entre 2 y 9 (incluidos) debe imprimir: "No es as ni
+figura". Para otros números debe imprimir: "este no es un número de una carta de la
+baraja española".
+
+-16. Escribir un programa que tras solicitar al usuario las coordenadas (x, y) de dos puntos
+calcule la pendiente de la recta que pasa por ambos puntos. La pendiente de dicha recta
+se calcula como:
+    y2 - y1
+m = -------
+    x2 - x1
+Validar el funcionamiento del programa cuando los puntos introducidos son: A(2,1) y
+B(2,5).

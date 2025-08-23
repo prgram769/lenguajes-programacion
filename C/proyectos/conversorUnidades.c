@@ -67,7 +67,7 @@ float dist() {
 
         printf("Ingresa la cantidad de kilometros que quieres convertir a millas: \n\n");
         
-        scanf("%g", kilometers);
+        scanf("%g", &kilometers);
 
         float convertion = kilometers * 0.621371;
 
@@ -78,7 +78,7 @@ float dist() {
 
         printf("Ingresa la cantidad de millas que quieres convertir a kilometros: \n\n");
 
-        scanf("%g", miles);
+        scanf("%g", &miles);
 
         float convertion = miles * 1.60934;
 
@@ -92,7 +92,41 @@ float dist() {
 }
 
 float weight() {
+    int option;
 
+    printf("--Peso--\n\n");
+    printf("1. Convertir kilogramos a libras.\n 2. Convertir libras a kilogramos.\n 3. Salir\n\n");
+
+    scanf("%d", &option);
+
+    if (option == 1)
+    {
+        float kilograms;
+
+        printf("Ingresa la cantidad de kilogramos que quieres convertir a libras: \n\n");
+
+        scanf("%g", &kilograms);
+
+        float convertion = kilograms * 2.20462;
+
+        printf("Tu cantidad inicial: %g Kg en libras es: %g L.");
+    } else if (option == 2)
+    {
+        float pounds;
+
+        printf("Ingresa la cantidad de libras que quieres convertir a kilogramos: \n\n");
+
+        scanf("%g", &pounds);
+
+        float convertion = pounds * 0.453592;
+
+        printf("Tu cantidad inicial: %g L en kilogramos es: %g Kg.");
+    } else if (option == 3)
+    {
+        return 0;
+    } else {
+        printf("Ingresa una opcion valida.");
+    }
 }
 
 int main(void) {
@@ -112,9 +146,8 @@ int main(void) {
     case 2:
         dist();
         break;
-
     case 3:
-
+        weight();
         break;
     case 4:
         return 0;
