@@ -1,0 +1,71 @@
+-1. Escriba un programa que pida una temperatura en grados Farenheit y la pase a Celsius.
+NOTA: celsius = (farenheit -32)*5/9
+
+-2. Escriba un programa que muestre en la pantalla un mensaje de presentación, pregunte
+al usuario su nombre y le salude con un mensaje personalizado que use el nombre que
+se acaba de leer.
+Nota: La lectura de cadenas de caracteres mediante la función scanf se detiene en
+cuanto se encuentra un espacio en blanco. Por tanto, si al solicitar el nombre se
+introduce algo como "Miguel de Cervantes", solo se almacenará en la variable cadena
+el texto antes del espacio ("Miguel").
+Para leer el nombre completo se puede recurrir al especificador de formato [^\n] que
+indica que deben leerse todos los caracteres hasta que se introduzca un salto de línea.
+Por ejemplo scanf ("%[\n]",nombre);
+
+-3. Escriba un programa en el que se declare una variable de tipo entero y se le asigne un
+valor. El programa debe mostrar el valor de la variable y la dirección de memoria en la
+que se almacena.
+
+-4. ¿Cuál es el resultado de evaluar la siguiente expresión? Suponga que la variable n
+tiene el valor 6.0 y la variable valor 2.0 y ambos son de tipo float. Escriba la expresión
+equivalente a esta utilizando paréntesis.
+minut = 25.0 + 120 * n / valor
+
+-5. Encuentre los errores del siguiente programa
+int main(void)
+{
+foat radio, perimetro;
+printf ( introduzca el radio");
+scanf("%f", &radio);
+perimetro= 2*PI*radio
+printf("%f", perimetro);
+return(0)
+
+-6. Escriba un programa en C que asigne a la variable x (de tipo entero) el resultado de
+4/0. ¿Qué ocurre al compilar el programa? ¿Y al ejecutarlo?
+
+-7. Escriba un programa en C que lea dos enteros en las variables x e y, y calcule y
+muestre por pantalla los valores de x/y (como número decimal ) y de x%y
+Ejecute el programa introduciendo valores diferentes. ¿Qué sucede cuando a la
+variable y se le asigna el valor 0?
+
+-8. Escriba un programa que lea tres enteros (a, b, c) y muestre por pantalla un 1 si los
+valores introducidos siguen un orden creciente (a>b>c) y 0 en caso contrario.
+
+-9. Escriba un programa que declare una variable de tipo entero x y una variable y de tipo
+real, asigne a dichas variables los valores 6 y 2.0, respectivamente, y calcule y muestre
+por pantalla el resultado de las siguientes operaciones:
+a) x*y
+b) x/y
+c) x%y
+¿Qué sucede al intentar compilar el programa? ¿Cómo resolvería este problema?
+
+-10. Escriba y compile el siguiente programa en C:
+#include <stdio.h>
+int main(void)
+{
+int a, b;
+char cadena[8];
+int c;
+a=7; b=14; c=128;
+printf ("Asigne un valor a la cadena de caracteres ");
+scanf("%[^\n]", cadena);
+printf ("La cadena es %s\n", cadena);
+printf ("El valor asignado a las variables
+es:\na=%d\nb=%d\nc=%d\n", a, b, c);
+system("PAUSE");
+return (0);
+}
+¿Detecta algún error?
+Ejecute el programa anterior asignando a cadena el valor "Hola", ¿qué sucede? Repita la
+ejecución asignando a cadena el valor "Buenos días", ¿qué observa?
