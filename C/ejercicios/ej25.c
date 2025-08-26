@@ -9,17 +9,35 @@ normales a partir de las 50 horas trabajadas.
 
 int main(void) {
     int wh;
-    int weeklyPay;
+    float weeklyPay;
     float priceHour;
+    float payPlus = 0;
+    float payPlusPlus = 0;
 
     printf("Ingresa la cantidad de horas trabajadas. \nIngresa a cuanto pagan las horas.\n\n");
 
     if (scanf("%d %f", &wh, &priceHour) == 2)
     {
-        if (wh <= 40)
+        float defaultPay = (wh > 40 ? 40: wh) * priceHour;
+
+        if (wh > 40)
         {
-            weeklyPay = wh * priceHour;
+            if (wh > 50)
+            {
+                payPlus = 10 * priceHour * 1.50;
+            } else {
+                payPlus = (wh - 40) * priceHour * 1.50;
+            }
         }
+        if (wh > 50)
+        {
+            defaultPay = 40 * priceHour;
+            payPlusPlus = (wh - 50) * priceHour * 2;          
+        }
+
+        weeklyPay = defaultPay + payPlus + payPlusPlus;
+        
+        printf("\nTu salario esta semana es de %.2f €", weeklyPay);
         
     } else {
         printf("\nIngresa valores validos.");
