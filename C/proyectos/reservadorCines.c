@@ -15,4 +15,5 @@ Requisitos:
 
 int main(void) {
     
+    printf("---SISTEMA DE RESERVA DE ASIENTOS---\n\n");
 }
