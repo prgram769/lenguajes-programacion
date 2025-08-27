@@ -13,7 +13,44 @@ Requisitos:
 
 #include <stdio.h>
 
-int main(void) {
+void cargar(int mat[5][5]) {
+    int f, c, option;
+
+    printf("¿Quieres seleccionar un asiento?\n1. Si - 2. No.\n\n");
+
+    if (scanf("%d", &option) == 1)
+    {
+        while (option == 1)
+        {
+            
+        }
+        
+    } else {
+        printf("Introduce valores validos.\n");
+    }
     
+}
+
+void imprimir(int mat[5][5]) {
+    int f, c;
+
+    for (f = 0; f < 5; f++)
+    {
+        for (f = 0; f < 5; f++)
+        {
+            printf("%i ", mat[f][c]);
+        }
+        printf("\n");
+        
+    }
+    
+}
+
+int main(void) {
+    int map[5][5];
+
     printf("---SISTEMA DE RESERVA DE ASIENTOS---\n\n");
+    printf("-Mapa de asientos-\n[][][][][]\n[][][][][]\n[][][][][]\n[][][][][]\n[][][][][]\n\n");
+
+     
 }
