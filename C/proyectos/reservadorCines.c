@@ -20,9 +20,18 @@ void cargar(int mat[5][5]) {
 
     if (scanf("%d", &option) == 1)
     {
-        while (option == 1)
-        {
+        printf("\nDime que asiento quieres elegir, me lo tienes que decir en este orden: fila y columna: \n\n");
             
+        if (scanf("%d %d", &f, &c) == 2)
+        {
+            int option;
+
+            mat[f][c] = 1;
+
+
+                
+        } else {
+            printf("\nDebes introducir valores validos.");
         }
         
     } else {
@@ -36,13 +45,14 @@ void imprimir(int mat[5][5]) {
 
     for (f = 0; f < 5; f++)
     {
-        for (f = 0; f < 5; f++)
+        for (c = 0; c < 5; c++)
         {
-            printf("%i ", mat[f][c]);
+            printf("%d", mat[f][c]);
+            printf("\n");
         }
-        printf("\n");
         
     }
+    
     
 }
 
@@ -51,6 +61,8 @@ int main(void) {
 
     printf("---SISTEMA DE RESERVA DE ASIENTOS---\n\n");
     printf("-Mapa de asientos-\n[][][][][]\n[][][][][]\n[][][][][]\n[][][][][]\n[][][][][]\n\n");
+    cargar(map);
+    imprimir(map);
 
      
 }
