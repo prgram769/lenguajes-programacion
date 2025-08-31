@@ -16,117 +16,44 @@ son distintas.*/
 #include <stdio.h>
 #include <string.h>
 
-int counter = 0;
-const int TRIES = 3;
+typedef enum {
+    justready,
+    unready
+} BOOL;
 
 int main(void) {
     char user[5];
     char password[5];
+    const int TRIES = 3;
+    int counter = 0;
+    int tries = 3;
+    BOOL ready = unready;
 
-    printf("--Sistema de acceso--\n\n");
-    printf("Introduce tu usuario: \n\n");
+    printf("--SISTEMA DE ACCESO--\n\n");
+    printf("Introduzca su usuario y contraseña: \n\n");
+
+    scanf("%s %s", user, password);
     
-    scanf("%s", user);
-
-    if (strcmp(user, "root") == 0)
+    while (ready != justready)
     {
-        counter = 0;
-
-        printf("\nAhora introduce tu contraseña numerica.\n\n");
-
-        if (strcmp(password, "1234") == 0)
-            {
-                printf("\nBienvenido al sistema usuario root");
-            } else {
-                
-                int tries = 3;
-
-                do
-                {
-                    counter++;
-
-                    printf("\nError: contraseña incorrecta, te quedan %d intentos.\n\n", TRIES - counter);
-
-                    tries--;
-
-                    if (strcmp(password, "1234") == 0)
-                    {
-                        printf("\nBienvenido al sistema usuario root.");
-                    }
-
-                    if (tries == 0)
-                    {
-                        printf("Error: Te has quedado sin intentos, vuelve a ejecutar y prueba de nuevo.");
-                        return 0;
-                    }
-                    
-                    scanf("%s", password);
-                    
-                } while (strcmp(password, "1234") != 0);                
-            }
-
-    } else {
-
-        int tries = 3;
-
-        do
+        if (strcmp(user, "root") != 1 && strcmp(password, "1234") != 0)
         {
             counter++;
-        
-            printf("\nError, usuario incorrecto, te quedan %d intentos.\n\n", TRIES - counter);
 
             tries--;
             
             if (tries == 0)
             {
-                printf("\nError: Te has quedado sin intentos, vuelve a ejecutar para probar de nuevo.");
+                printf("\nTe has quedado sin intentos.");
                 return 0;
-            }
-
-            scanf("%s", user);
-
-        } while (strcmp(user, "root") != 0);
-
-        if (strcmp(user, "root") == 0)
-        {
-            counter = 0;
-
-            printf("\nAhora introduce tu contraseña numerica.\n\n");
-
-            scanf("%s", password);
-
-            if (strcmp(password, "1234") == 0)
-            {
-                printf("\nBienvenido al sistema usuario root");
             } else {
-                
-                int tries = 3;
+                printf("\nDatos invalidos, estos datos son erroneos, te quedan %d intentos.\n\n", TRIES - counter);
 
-                do
-                {
-                    counter++;
-
-                    printf("\nError: contraseña incorrecta, te quedan %d intentos.\n\n", TRIES - counter);
-
-                    tries--;
-
-                    if (strcmp(password, "1234") == 0)
-                    {
-                        printf("\nBienvenido al sistema usuario root");
-                    }
-
-                    if (tries == 0)
-                    {
-                        printf("Error: Te has quedado sin intentos, vuelve a ejecutar y prueba de nuevo.");
-                        return 0;
-                    }
-
-                    scanf("%s", password);
-                    
-                } while (strcmp(password, "1234") != 0);
-                
+                scanf("%s %s", user, password);
             }
-            
+        } else {
+            printf("\nBienvenido al sistema.");
+            return 0;
         }
         
     }
