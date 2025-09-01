@@ -7,32 +7,29 @@ biblioteca math (#include <math.h>).*/
 #include <math.h>
 
 int main(void) {
-
     int n1;
+    int result1;
+    int exponente;
+    int result2 = 1;
+    printf("Introduce un numero entero y un exponente entero: \n\n");
 
-    printf("Introduce un numero entero: \n\n");
-
-    if (scanf("%d", &n1) == 1)
+    if (scanf("%d %d", &n1, &exponente) == 2)
     {
-        int potence = 6;
+        printf("\nMetodo con funcion pow: \n\n");
 
-        float result = pow(n1, potence);
+        result1 = pow(n1, exponente);
 
-        printf("La potencia es %d", result);
+        printf("El resultado con la funcion pow es: %d\n", result1);
+        printf("\nMetodo con bucle: \n\n");
 
-        int base = n1;
-        int exponente = 6;
-        int resultado = 1; // Inicializar el resultado a 1
-
-        // Bucle para calcular la potencia
-        for (int i = 0; i < exponente; i++) {
-            resultado = resultado * base; // Multiplica el resultado por la base
+        for (int i = 0; i < exponente; i++)
+        {
+            result2 = result2 * n1;
         }
 
-        printf("El resultado de %d elevado a %d es: %d\n", base, exponente, resultado); // Imprime el resultado
+        printf("El resultado con el bucle es: %d", result2);
         
     } else {
-        printf("\nIntroduce valores validos.");
+        printf("\nIntroduzca valores validos.");
     }
-    
 }
