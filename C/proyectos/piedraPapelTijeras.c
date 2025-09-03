@@ -15,15 +15,17 @@ Requisitos:
 #include <stdlib.h>
 #include <time.h>
 
-int main(void) {
+int counterWins = 0;
+int counterFails = 0;
+
+int verification(void) {
     srand(time(NULL));
 
     int randnum = rand() % 2;
     int userNum;
-    int option;
 
     printf("---Piedra, papel y tijera.---\n\n");
-    printf("Ingresa un numero.\n0. Piedra. 1. Papel. 2. Tijera.\n\n");
+    printf("Ingresa un numero:\n0. Piedra. 1. Papel. 2. Tijera.\n\n");
 
     if (scanf("%d", &userNum) == 1)
     {
@@ -33,49 +35,86 @@ int main(void) {
             if (randnum == 0)
             {
                 printf("\nEmpate.\n\n");
+                printf("\n     ________\n---'\n\t ____)\n\t (_____)\n\t (_____)\n\t (____)\n---.__(___)\n\n");
             } else if (randnum == 1)
             {
                 printf("\nHas perdido.\n\n");
+                printf("\n     ________\n---'\n\t ____)\n\t (_____)\n\t (_____)\n\t (____)\n---.__(___)\n\n");
+
+                counterFails++;
             } else if (randnum == 2)
             {
                 printf("\nHas ganado.\n\n");
+                printf("\n     ________\n---'\n\t ____)\n\t (_____)\n\t (_____)\n\t (____)\n---.__(___)\n\n");
+
+                counterWins++;
             }
             break;
         case 1:
             if (randnum == 0)
             {
                 printf("\nHas ganado.\n\n");
+                printf("\n     _______\n---'    ____)_\n\t______)\n\t_______)\n\t_______)\n---.__________)\n\n");
+
+                counterWins++;
             } else if (randnum == 1)
             {
                 printf("\nEmpate.\n\n");
+                printf("\n     _______\n---'    ____)_\n\t______)\n\t_______)\n\t_______)\n---.__________)\n\n");
             } else if (randnum == 2)
             {
                 printf("\nHas perdido.\n\n");
+                printf("\n     _______\n---'    ____)_\n\t______)\n\t_______)\n\t_______)\n---.__________)\n\n");
+
+                counterFails++;
             }
             break;
         case 2:
             if (randnum == 0)
             {
                 printf("\nHas perdido.\n\n");
+                printf("\n    _______\n---'____)__\n\t______)\n\t__________)\n\t(____)\n---.__(___)\n\n");
+
+                counterFails++;
             } else if (randnum == 1)
             {
                 printf("\nHas ganado.\n\n");
+                printf("\n    _______\n---'____)__\n\t______)\n\t__________)\n\t(____)\n---.__(___)\n\n");
+
+                counterWins++;
             } else if (randnum == 2)
             {
                 printf("\nEmpate.\n\n");
+                printf("\n    _______\n---'____)__\n\t______)\n\t__________)\n\t(____)\n---.__(___)\n\n");
             }
             break;
         default:
             printf("\nDebes introducir un valor valido.");
             break;
         }
-        printf("¿Quieres jugar de nuevo?\n1. Si. 2. No.\n\n");
+    } else {
+        printf("\nDebes introducir valores validos.");
+    }
+}
+int main(void) {
 
-        if (scanf("%d", &option) == 1)
+    int option;
+
+    verification();
+
+    printf("¿Quieres jugar de nuevo?\n1. Si. 2. No.\n\n");
+
+    if (scanf("%d", &option) == 1)
+    {
+        while (option == 1)
         {
             if (option == 1)
             {
-                main();
+                verification();
+
+                printf("\n¿Quieres jugar de nuevo?\n1. Si. 2. No.\n\n");
+                
+                scanf("%d", &option);
             } else if (option == 2)
             {
                 printf("\nSaliendo...");
@@ -84,11 +123,10 @@ int main(void) {
             } else {
                 printf("\nDebes introducir un valor valido.");
             }
-        } else {
-            printf("\nIngresa un valor valido.");
-        }
+            printf("\nHas tenido un total de %d victorias.\nHas tenido un total de %d derrotas.\n\n", counterWins, counterFails);
+        } 
     } else {
-        printf("\nDebes introducir valores validos.");
+        printf("\nIngresa un valor valido.");
     }
     
 }
