@@ -15,13 +15,32 @@ int main(void) {
     if (scanf("%d %d %d %d %d %d %d %d %d %d", &n1, &n2, &n3, &n4, &n5, &n6, &n7, &n8, &n9, &n10) == 10)
     {
         int sum = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10;
-        int medium = (n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10) / 10;
-        int nHigher;
-        int nLower;
+        float medium = (n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10) / 10;
+        int arrayNums[10] = {n1, n2, n3, n4, n5, n6, n7, n8, n9, n10};
+        int nHigher = n1;
+        int nLower = n1;
 
         printf("\nLa suma es: %d\n\n", sum);
-        printf("La media es: %d\n\n", medium);
-        
+        printf("La media es: %.2f\n\n", medium);
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (arrayNums[i] > nHigher)
+            {
+                nHigher = arrayNums[i];
+            }
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            if (arrayNums[i] < nLower)
+            {
+                nLower = arrayNums[i];
+            }
+        }
+
+        printf("El numero mayor es %d", nHigher);
+        printf("\nEl numero menor es %d", nLower);
+
     } else {
         printf("\nIntroduce valores validos.");
     }
