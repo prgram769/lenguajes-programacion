@@ -16,8 +16,10 @@ Requisitos:
 
 char agree(char string) {
     int tasks[10];
+    int i = 0;
 
-    
+    tasks[i] = string;
+    i++;
 }
 
 char mark(void) {
