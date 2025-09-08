@@ -1,0 +1,103 @@
+-1. Escriba una función que devuelva el resultado de elevar un número (declarado como
+entero) a cualquier potencia (valor entero). El resultado de este cálculo debe ser de
+tipo long.
+
+-2. Escriba una función que reciba dos números reales positivos como parámetros y
+devuelva el máximo de los dos valores.
+
+-3. Escriba un programa en C que muestre el siguiente menú:
+CALCULO DE AREAS
+===========================
+1 - Calcular el área de un triángulo
+2 - Calcular el área de un trapecio
+3 - Calcular el área de un rectángulo
+Y lea la opción introducida por el usuario. En función de la opción el programa deberá
+pedir los datos necesarios para calcular el área, realizar el cálculo y mostrar el
+resultado por pantalla.
+Utilice una función para mostrar el menú, y otras tres para calcular el área de los
+distintos polígonos (triángulo, trapecio rectángulo). El valor de retorno de cada una de
+estas tres últimas funciones debe ser el área calculada.
+
+-4. Escriba una función que intercambie los valores de dos variables de tipo entero.
+
+-5. La nota del examen de una asignatura corresponde en un 20% al primer parcial, un
+20% al segundo parcial y un 60% el examen final. La nota final es la mejor entre la
+nota del examen y la nota obtenida con la evaluación continua (teniendo en cuenta los
+dos parciales).
+Escriba un programa que pida estas tres notas y calcule la nota final de un alumno. A
+continuación, el programa debe preguntar al usuario si quiere calcular una nueva nota
+o finalizar (pulsando la tecla ‘s’). Utilice una función para calcular la nota y otra para
+obtener el máximo (que puede ser la desarrollada en el ejercicio 2).
+
+-6. Realizar un programa en C que verifique si existe o no concordancia entre los datos de
+un NIF (DNI y letra) introducido por teclado. Para ello:
+a. Tras solicitar el DNI se debe comprobar que el valor introducido es positivo y tiene
+a lo sumo 8 dígitos. En caso de no cumplir estas condiciones se ha de indicar que el
+DNI introducido es incorrecto y se pedirá un nuevo valor.
+En la fase de verificación se debe utilizar una función que reciba como parámetro
+el número del DNI y, tras hacer las comprobaciones pertinentes, devuelva el valor
+VERDADERO (1) o el valor FALSO (0).
+b. Una vez introducido un DNI correcto, se solicitará una letra y el programa debe
+determinar si DNI y letra son concordantes.
+Para ello el alumno debe:
+b.1. Implementar una función que dado el número del DNI, devuelva la letra
+que le corresponde. Para calcular dicha letra hay que tener en cuenta que la
+misma es función del resto obtenido al dividir el número del DNI entre 23.
+La relación entre ambos parámetros es:
+Resto Letra Resto Letra Resto Letra
+0 T 8 P 16 Q
+1 R 9 D 17 V
+2 W 10 X 18 H
+3 A 11 B 19 L
+4 G 12 N 20 C
+5 M 13 J 21 K
+6 Y 14 Z 22 E
+7 F 15 S
+b.2 Implementar una función que reciba, entre otros parámetros, la letra del
+DNI introducida por el usuario y devuelva si dicha letra corresponde o no
+al DNI introducido.
+c. Al final, el programa debe indicar al usuario si el NIF introducido es o no correcto.
+Nota: En la resolución de este problema se sugiere hacer uso de las siguientes
+funciones contenidas en la biblioteca estándar ctype.h.
+int isalpha(int c); Devuelve verdadero si c es una letra
+int toupper (int c); Devuelve el carácter en mayúscula correspondiente
+al carácter pasado por parámetro.
+
+-7. Realizar un programa que pida al usuario información de un día/mes/año posterior al
+1978 y a continuación le muestre al usuario el día de la semana con que se corresponde
+esa fecha. Para realizar este cálculo la única información disponible es que el 1 de Enero
+de 1978 fue domingo.
+Para realizar el ejercicio conviene tener en cuenta que el día de la semana se puede
+obtener a partir del número de días transcurridos entre la fecha introducida por el
+usuario y la fecha de referencia (1 de enero de 1978). Una vez conocido este valor, el
+día de la semana vendrá dado por:
+dia_semana=n_dias_transcurridos % 7
+En la resolución de este ejercicio se deben usar las siguientes funciones:
+a) void leerFecha(int *dia, int *mes, int *year);
+Objetivo: Solicita los datos relatives a una fecha hasta
+que éstos se correspondan con una fecha válida.
+b) int validarFecha (int dia, int mes, int year);
+Valor de retorno: 1 si la fecha introducida es válida
+(posterior al 01/01/1978; 0<mes<13; 0<d<=días_mes) y 0 en
+caso contrario.
+c) int calcularDias(int dia, int mes, int year);
+Valor de retorno: Número de días que hay entre una
+determinada fecha y el 1 de Enero de 1978.
+Para realizar correctamente este cálculo se requiere
+identificar los años bisiestos
+d) int anioBisiesto(int year);
+Valor de retorno: 1 si el año es bisiesto y 0 en caso
+contrario.
+Nota: Un año es bisiesto si es múltiplo de 4 excepto aquellos divisibles por 100 a no ser
+que lo sean por 400. Así, por ejemplo, los años 1500, 1700, 1800, 1900 y 2100 son
+años no bisiestos mientras que los años 1600, 1200 ó 2400 sí son años bisiestos
+
+-8. Escribir un programa que solicite al usuario un número natural y el número de
+decimales que se quiere contemplar al calcular su raíz. Una vez introducidos estos
+datos, se debe mostrar por pantalla el resultado de:
+a) Realizar la raíz cuadrada usando el método de las aproximaciones
+sucesivas.
+b) Calcular el factorial de ese número.
+c) Indicar si el número introducido es primo o no. Un número primo es
+aquel que sólo es divisible por sí mismo y por el número 1. Por convenio,
+el número 1 no se considera primo
