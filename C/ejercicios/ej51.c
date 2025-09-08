@@ -12,6 +12,7 @@ Entonces se imprimirá por pantalla el importe total de la factura.*/
 int main(void) {
     char article[50];
     int option = 1;
+    int c;
     float units;
     float unitPrice;
     float sum;
@@ -23,6 +24,8 @@ int main(void) {
         if (fgets(article, sizeof(article), stdin) != NULL)
         {
             article[strcspn(article, "\n")] = 0;
+        } else {
+            printf("\nArticulo no reconocido.\n");
         }
 
         printf("\nIntroduce el numero de unidades que vas a comprar:\n\n");
@@ -32,6 +35,8 @@ int main(void) {
             if (units == 0 || units < 0)
             {
                 printf("\nSaliendo...");
+
+                continue;
             } else {
                 printf("\nDime el precio del articulo:\n\n");
 
@@ -43,6 +48,23 @@ int main(void) {
 
                     if (scanf("%d", &option) == 1)
                     {
+                        if (option == 1)
+                        {
+                            while ((c = getchar()) != '\n' && c != EOF) 
+                            {
+                                
+                            }
+                            
+                        } else if (option == 2)
+                        {
+                            printf("\nSaliendo...\n");
+
+                            break;
+                        } else {
+                            printf("\nDebes introducir valores contemplados.");
+                        }
+                    } else {
+                        printf("\nDebes introducir valores validos.");
                     }
                     
                 } else {
