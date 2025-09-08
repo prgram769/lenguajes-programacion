@@ -10,55 +10,52 @@ Entonces se imprimirá por pantalla el importe total de la factura.*/
 #include <string.h>
 
 int main(void) {
-    int articles[20];
-    char article[20];
-    int units;
+    char article[50];
+    int option = 1;
+    float units;
     float unitPrice;
     float sum;
-    int option = 1;
-
+    
     while (option == 1)
     {
-     printf("\nIntroduce un articulo.\n\n");
+        printf("\nIntroduce un articulo:\n\n");
 
         if (fgets(article, sizeof(article), stdin) != NULL)
         {
-            article[strspn(article, "\n")] = 0;
+            article[strcspn(article, "\n")] = 0;
+        }
 
-            printf("\nIntroduce las unidades que se han vendido.\n\n");
+        printf("\nIntroduce el numero de unidades que vas a comprar:\n\n");
 
-            if (scanf("%d", &units) == 1)
+        if (scanf("%f", &units) == 1)
+        {
+            if (units == 0 || units < 0)
             {
-                printf("\nIntroduce el precio de la unidad.\n\n");
+                printf("\nSaliendo...");
+            } else {
+                printf("\nDime el precio del articulo:\n\n");
 
                 if (scanf("%f", &unitPrice) == 1)
                 {
-                    sum = units * unitPrice;
+                    sum += units * unitPrice;
 
-                    printf("\n¿Quieres añadir otro articulo?\n1. Si. 2. No.\n\n");
+                    printf("\n¿Quieres introducir otro articulo?\n1. Si. 2. No.\n\n");
 
-                    scanf("%d", &option);
-                
+                    if (scanf("%d", &option) == 1)
+                    {
+                    }
+                    
                 } else {
                     printf("\nDebes introducir valores validos.\n");
                 }
-
-                if (option == 1)
-                {
-                    
-                }
                 
-
-            } else {
-                printf("\nDebes introducir valores validos.\n");
             }
-        
-        }   
-    } 
-    
-    if (option == 2)
-    {
-        printf("\nLa cuenta final de la factura total es: %d", sum);
+            
+        } else {
+            printf("\nDebes introducir valores validos.\n");
+        }
     }
 
+    printf("\nEl importe total es: %.2f", sum);
+    
 }
