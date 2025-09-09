@@ -11,6 +11,7 @@ int main(void) {
     int result1;
     int exponente;
     int result2 = 1;
+    
     printf("Introduce un numero entero y un exponente entero: \n\n");
 
     if (scanf("%d %d", &n1, &exponente) == 2)
