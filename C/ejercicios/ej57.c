@@ -13,15 +13,17 @@ b.1. Implementar una función que dado el número del DNI, devuelva la letra
 que le corresponde. Para calcular dicha letra hay que tener en cuenta que la
 misma es función del resto obtenido al dividir el número del DNI entre 23.
 La relación entre ambos parámetros es:
-Resto Letra Resto Letra Resto Letra
-0 T 8 P 16 Q
-1 R 9 D 17 V
-2 W 10 X 18 H
-3 A 11 B 19 L
-4 G 12 N 20 C
-5 M 13 J 21 K
-6 Y 14 Z 22 E
-7 F 15 S
+Resto Letra
+
+0 T     8 P      16 Q
+1 R     9 D      17 V
+2 W     10 X     18 H
+3 A     11 B     19 L
+4 G     12 N     20 C
+5 M     13 J     21 K
+6 Y     14 Z     22 E
+7 F     15 S 
+
 b.2 Implementar una función que reciba, entre otros parámetros, la letra del
 DNI introducida por el usuario y devuelva si dicha letra corresponde o no
 al DNI introducido.
@@ -35,29 +37,158 @@ al carácter pasado por parámetro.*/
 #include <stdio.h>
 #include <string.h>
 
-int main(void) {
+int validate(int dniNum)
+{
+    char dniNString[15];
+
+    if (dniNum > 0)
+    {
+        sprintf(dniNString, "%d", dniNum);
+
+        if (strlen(dniNString) == 8)
+        {
+            return 1;
+        } else
+        {
+            printf("\nError, este numero del DNI es incorrecto, debes introducir uno valido.\n");
+
+            return 0;
+        }
+    }
+    else
+    {
+        printf("\nError, este numero del DNI es incorrecto, debes introducir uno valido.\n");
+    }
+}
+
+char letterValidate(int dniNum) {
+    int rest = dniNum % 23;
+
+    switch (rest)
+    {
+    case 0:
+        return 'T';
+        break;
+    case 1:
+        return 'R';
+        break;
+    case 2:
+        return 'W';
+        break;
+    case 3:
+        return 'A';
+        break;
+    case 4: 
+        return 'G';
+        break;
+    case 5:
+        return 'M';
+        break;
+    case 6:
+        return 'Y';
+        break;
+    case 7:
+        return 'F';
+        break;
+    case 8:
+        return 'P';
+        break;
+    case 9:
+        return 'D';
+        break;
+    case 10: 
+        return 'X';
+        break;
+    case 11:
+        return 'B';
+        break;
+    case 12:
+        return 'N';
+        break;
+    case 13:
+        return 'J';
+        break;
+    case 14:
+        return 'Z';
+        break;
+    case 15:
+        return 'S';
+        break;
+    case 16: 
+        return 'Q';
+        break;
+    case 17:
+        return 'V';
+        break;
+    case 18:
+        return 'H';
+        break;
+    case 19:
+        return 'L';
+        break;
+    case 20:
+        return 'C';
+        break;
+    case 21:
+        return 'K';
+        break;
+    case 22: 
+        return 'E';
+        break;
+    default:
+        printf("\nError.");
+        break;
+    }
+}
+
+int validateLetterNum(int dniNum, char dniLetter[2]) {
+    char array[23] = {"TRWAGMYFPDXBNJZSQVHLCKE"};
+    
+    for (int i = 0; i < 23; i++)
+    {
+        if (array[i] != dniLetter[0])
+        {
+            
+        } else {
+            printf("\nLa letra es correcta.\n");
+
+            return 1;
+        }
+           
+    }
+}
+
+int main(void)
+{
     int boolean = 1;
-    char nif[15];
+    int dniN;
 
     while (boolean == 1)
     {
         printf("\nDebes introducir tu numero del DNI:\n\n");
-    
-        scanf("%s", nif);
 
-        if (strlen(nif) == 8)
+        if (scanf("%d", &dniN) == 1)
         {
-            if (nif[0] == '-')
+            if (validate(dniN) == 1)
             {
-                printf("\nError, el este numero del DNI esta mal, no puede contener valores negativos.\n");
-            } else {
-                printf("Prueba");
-                boolean = 0;
+                boolean == 0;
+
+                char dniLetter[2] = {letterValidate(dniN)};
+
+                if (validateLetterNum(dniN, dniLetter) == 1)
+                {
+                    printf("\nEl NIF es correcto.");
+
+                    break;
+                } else {
+                    printf("\nEl NIF es incorrecto.");
+                }
+
             }
-        
-        } else {
-            printf("\nError, este numero del DNI está mal, no tiene 8 digitos.\n");
-        }   
+        }
+        else
+        {
+            printf("\nDebes introducir valores validos.\n");
+        }
     }
-    
 }
