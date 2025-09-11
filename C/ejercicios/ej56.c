@@ -16,20 +16,12 @@ float calcMark(float ex1, float ex2, float exFinal) {
 
     float totalResult = first + second + final;
 
-    return totalResult;
-}
-
-float theBest(float totalResult, float exFinal) {
-    float best;
-
-    
-
-    if (totalResult)
+    if (totalResult > exFinal)
     {
-        
+        return totalResult;
+    } else {
+        return exFinal;
     }
-    
-    return best;
     
 }
 
@@ -41,10 +33,9 @@ int main(void) {
 
     if (scanf("%f %f %f", &ex1, &ex2, &exFinal) == 3)
     {
-        float mean = (ex1 + ex2) / 2;
-        float finalMark = theBest(ex1, ex2, exFinal); 
+        float finalMark = calcMark(ex1, ex2, exFinal);
 
-        printf("\nLa");
+        printf("\nLa nota final del alumno es %.2f", finalMark);
     } else {
         printf("\nDebes introducir valores validos.\n");
     }
