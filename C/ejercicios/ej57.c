@@ -61,107 +61,101 @@ int validate(int dniNum)
     }
 }
 
-char letterValidate(int dniNum) {
+int validateLetterNum(int dniNum, char letterI) {
+    char letter;
     int rest = dniNum % 23;
-
+    
     switch (rest)
     {
     case 0:
-        return 'T';
+        letter = 'T';
         break;
     case 1:
-        return 'R';
+        letter = 'R';
         break;
     case 2:
-        return 'W';
+        letter = 'W';
         break;
     case 3:
-        return 'A';
+        letter = 'A';
         break;
     case 4: 
-        return 'G';
+        letter = 'G';
         break;
     case 5:
-        return 'M';
+        letter = 'M';
         break;
     case 6:
-        return 'Y';
+        letter = 'Y';
         break;
     case 7:
-        return 'F';
+        letter = 'F';
         break;
     case 8:
-        return 'P';
+        letter = 'P';
         break;
     case 9:
-        return 'D';
+        letter = 'D';
         break;
     case 10: 
-        return 'X';
+        letter = 'X';
         break;
     case 11:
-        return 'B';
+        letter = 'B';
         break;
     case 12:
-        return 'N';
+        letter = 'N';
         break;
     case 13:
-        return 'J';
+        letter = 'J';
         break;
     case 14:
-        return 'Z';
+        letter = 'Z';
         break;
     case 15:
-        return 'S';
+        letter = 'S';
         break;
     case 16: 
-        return 'Q';
+        letter = 'Q';
         break;
     case 17:
-        return 'V';
+        letter = 'V';
         break;
     case 18:
-        return 'H';
+        letter = 'H';
         break;
     case 19:
-        return 'L';
+        letter = 'L';
         break;
     case 20:
-        return 'C';
+        letter = 'C';
         break;
     case 21:
-        return 'K';
+        letter = 'K';
         break;
     case 22: 
-        return 'E';
+        letter = 'E';
         break;
     default:
         printf("\nError.");
         break;
-    }
-}
+    } 
 
-int validateLetterNum(int dniNum, char dniLetter[2]) {
-    char array[23] = {"TRWAGMYFPDXBNJZSQVHLCKE"};
-    
-    for (int i = 0; i < 23; i++)
+    if (letterI == letter)
     {
-        if (array[i] != dniLetter[0])
-        {
-            
-        } else {
-            printf("\nLa letra es correcta.\n");
-
-            return 1;
-        }
-           
+        return 1;
+    } else {
+        return 0;
     }
+    
 }
 
 int main(void)
 {
+    char letterI;
     int boolean = 1;
     int dniN;
+    int c;
 
     while (boolean == 1)
     {
@@ -169,19 +163,22 @@ int main(void)
 
         if (scanf("%d", &dniN) == 1)
         {
+            printf("\nDebes introducir tu letra del DNI:\n\n");
+
+            scanf(" %c", &letterI);
+
             if (validate(dniN) == 1)
             {
-                boolean == 0;
-
-                char dniLetter[2] = {letterValidate(dniN)};
-
-                if (validateLetterNum(dniN, dniLetter) == 1)
+                
+                if (validateLetterNum(dniN, letterI) == 1)
                 {
                     printf("\nEl NIF es correcto.");
 
+                    boolean = 0;
+
                     break;
                 } else {
-                    printf("\nEl NIF es incorrecto.");
+                    printf("\nEl NIF es incorrecto.\n");
                 }
 
             }
