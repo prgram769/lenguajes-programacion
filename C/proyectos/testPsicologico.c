@@ -17,11 +17,6 @@ int main(void) {
             
             if (scanf("%d", &answer) == 1)
             {
-                if ()
-                {
-                    /* code */
-                }
-                
             } else {
                 printf("\nDebes introducir valores contemplados.");
             }
