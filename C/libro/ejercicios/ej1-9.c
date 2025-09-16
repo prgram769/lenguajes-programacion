@@ -4,18 +4,45 @@
 
 int main(void) {
     int c;
-    int caracterAnterior;
+    int characterBefore;
 
     while ((c = getchar()) != EOF)
     {
-
         if (c != ' ')
         {
             if (c != '\t')
             {
-                
+                putchar(c);
+
+                characterBefore = 'l';
             }
+            
+        }
+
+        if (c == ' ')
+        {
+            if (characterBefore == 'l')
+            {
+                printf(" ");
+                
+                characterBefore = 'b';
+            }
+            
+        }
+
+        if (c == '\t')
+        {
+            if (characterBefore == 'l')
+            {
+                printf(" ");
+
+                characterBefore = 'b';
+            }
+            
+        }
+        
+        
         
     }
-    
+       
 }
