@@ -16,7 +16,7 @@ int main(void) {
 
         printf("%d\t%d\n", fahrenheit, celsius);
 
-        fahrenheit = fahrenheit + 20;
+        fahrenheit = fahrenheit + step;
     }
     
 }
