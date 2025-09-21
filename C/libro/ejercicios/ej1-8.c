@@ -3,19 +3,25 @@
 #include <stdio.h>
 
 int main(void) {
-    int c, counter;
-    
-    counter = 0;
+    int character, nOfSpaces, nOfTabs, nOfLines;
 
-    while ((c = getchar()) != EOF)
+    nOfLines = nOfSpaces = nOfTabs = 0;
+
+    while ((character = getchar()) != EOF)
     {
-        if (c == '\n' || c == '\t' || c == ' ')
+        if (character == ' ')
         {
-            counter++;
-
-            printf("El valor del contador es: %d\n", counter);
+            nOfSpaces++;
+        } else if (character == '\t')
+        {
+            nOfTabs++;
+        } else if (character == '\n')
+        {
+            nOfLines++;
         }
         
     }
+
+    printf("\nEn lo introducido han habido un total de %d espacios, %d tabulaciones y %d nuevas lineas.\n", nOfSpaces, nOfTabs, nOfLines);
     
 }

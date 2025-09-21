@@ -3,19 +3,18 @@
 int main(void) {
     /*Contar las lineas de la entrada*/
 
-    int c, counter;
+    int character, nOfLines;
 
-    counter = 0;
+    nOfLines = 0;
 
-    while ((c = getchar()) != EOF)
+    while ((character = getchar()) != EOF)
     {
-        if (c == '\n')
+        if (character == '\n')
         {
-            ++counter;
-            
-            printf("%d\n", counter);
+            ++nOfLines;
         }
-        
     }
+
+    printf("\nEl numero de lineas es %d\n", nOfLines);
     
 }

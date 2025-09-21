@@ -3,34 +3,18 @@
 #include <stdio.h>
 
 int main(void) {
-    int c;
-    int characterBefore;
+    int character, characterBefore;
 
-    while ((c = getchar()) != EOF)
+    while ((character = getchar()) != EOF)
     {
-        if (c != ' ')
+        if (character != ' ' && character != '\t')
         {
-            if (c != '\t')
-            {
-                putchar(c);
+            putchar(character);
 
-                characterBefore = 'l';
-            }
-            
+            characterBefore = 'l';
         }
-
-        if (c == ' ')
-        {
-            if (characterBefore == 'l')
-            {
-                printf(" ");
-                
-                characterBefore = 'b';
-            }
-            
-        }
-
-        if (c == '\t')
+        
+        if (character == ' ' || character == '\t')
         {
             if (characterBefore == 'l')
             {
@@ -40,9 +24,6 @@ int main(void) {
             }
             
         }
-        
-        
         
     }
-       
 }
