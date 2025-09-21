@@ -3,13 +3,14 @@
 int main(void) {
     /*Cuenta los caracteres de la entrada 1ª version*/
 
-    int counter = 0;
+    long nOfCharacters = 0;
 
     while (getchar() != EOF)
     {
-        counter++;
+        ++nOfCharacters;
 
-        printf("%d\n", counter);
     }
+    
+    printf("\nEl numero de caracteres es %ld\n", nOfCharacters);
     
 }

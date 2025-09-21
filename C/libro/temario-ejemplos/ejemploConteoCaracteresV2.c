@@ -2,16 +2,13 @@
 
 int main(void) {
     /*Cuenta los caracteres de la entrada 2ª version*/
-
-    long counter;
-
-    counter = 0;
-
-    while (getchar() != EOF)
-    {
-        ++counter;
-
-        printf("%ld\n", counter);
-    }
     
+    double nOfCharacter;
+
+    for (nOfCharacter = 0; getchar() != EOF; ++nOfCharacter)
+    {
+        ;
+    }
+
+    printf("\nEste es el numero de caracteres: %.0f\n", nOfCharacter);
 }

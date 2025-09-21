@@ -3,13 +3,21 @@
 #include <stdio.h>
 
 int main(void) {
-    int c = getchar();
 
-    if (c != EOF)
+    int character;
+
+    while (character = getchar() != EOF)
     {
-        printf("1");
-    } else {
-        printf("0");
+        if (character == 0)
+        {
+            printf("\nEl valor de la expresion getchar() != EOF es %d.", character);
+        } else if (character == 1)
+        {
+            printf("\nEl valor de la expresion getchar() != EOF es %d.", character);
+        } else {
+            printf("\nERROR.");
+        }
+
     }
     
 }

@@ -1,15 +1,17 @@
 #include <stdio.h>
 
+/*copia la entrada a la salida*/
+
 int main(void) {
-    /*copia la entrada a la salida*/
+    int character;
+    
+    character = getchar();
 
-    int c = getchar();
-
-    while (c != EOF)
+    while (character != EOF)
     {
-        putchar(c);
+        putchar(character);
 
-        c = getchar();
+        character = getchar();
     }
     
 }
