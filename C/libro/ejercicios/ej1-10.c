@@ -3,24 +3,27 @@
 #include <stdio.h>
 
 int main(void) {
-    int entry;
+    int character;
 
-    while ((entry = getchar()) != EOF)
+    while ((character = getchar()) != EOF)
     {
-        if (entry == '\t')
+        if (character == '\t')
         {
             putchar('\\');
+
             putchar('t');
-        } else if (entry == '\b')
+        } else if (character == '\b')
         {
             putchar('\\');
+
             putchar('b');
-        } else if (entry == '\\')
+        } else if (character == '\\')
         {
             putchar('\\');
+
             putchar('\\');
         } else {
-            putchar(entry);
+            putchar(character);
         }
     }
     
