@@ -7,20 +7,23 @@ int main(void) {
 
     while ((character = getchar()) != EOF)
     {
-        if (character != ' ' && character != '\t')
+        if (character != ' ' && character != '\t') /*aqui estamos verificando que character sea distinto de espacio o tabulacion
+                                                     en dicho caso, colocaremos la entrada en la salida y pondremos a una variable el valor de l*/
         {
             putchar(character);
 
             characterBefore = 'l';
         }
-        
-        if (character == ' ' || character == '\t')
+
+        if (character == ' ' || character == '\t') /*aqui verificamos que character sea un espacio o tabulacion, en dicho caso, 
+                                                     me verificara si el caracter anterior era una letra en caso de que sea, hará un print de un espacio
+                                                     posteriormente pondra el valor de characterBefore a 's' que significara que el caracter anterior es un espacio*/
         {
             if (characterBefore == 'l')
             {
                 printf(" ");
 
-                characterBefore = 'b';
+                characterBefore = 's';
             }
             
         }

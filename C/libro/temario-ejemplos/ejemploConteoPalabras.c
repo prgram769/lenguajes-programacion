@@ -1,37 +1,27 @@
 #include <stdio.h>
 
-#define IN 1 /*en una palabra*/
-#define OUT 0 /*fuera de una palabra*/
-
 /*cuenta lineas, palabras y caracteres de la entrada*/
-
 int main(void) {
-    int c, nl, nw, nc, state;
+    int character, nOfLines, nOfWords, nOfCharacters, state;
 
-    state = OUT;
+    nOfCharacters = nOfWords = nOfLines = 0;
 
-    nl = nw = nc = 0; // esto es lo mismo que separar por lineas nl = 0, nw = 0...
-
-    while ((c = getchar()) != EOF)
+    while ((character = getchar()) != EOF)
     {
-        ++nc;
+        nOfCharacters++;
 
-        if (c == '\n')
+        if (character == ' ' || character == '\t' || character == '\n')
         {
-            ++nl;
+            nOfWords++;
         }
-        if (c == ' ' || c == '\n' || c == '\t')
+        
+        if (character == '\n')
         {
-            state = OUT;
-        } else if (state == OUT)
-        {
-            state = IN;
-            
-            ++nw;
-        }        
+            nOfLines++;
+        }
+        
     }
 
-    printf("%d %d %d\n", nl, nw, nc);
+    printf("\nEl total de caracteres es de %d, el de palabras es de %d y el de lineas es de %d", nOfCharacters, nOfWords, nOfLines);
     
 }
-
