@@ -1,39 +1,46 @@
 #include <stdio.h>
 
 int main(void) {
-    /*Cuenta digitos, espacios blancos y otros*/
+    /*cuenta digitos espacios en blanco, tabuladores y saltos de linea*/
 
-    int c, i, nwhite, nother;
-    int ndigit[10];
+    int character, nOfSpaces, nOfTabs, nOfLines, nOfOthers, i;
+    int nDigits[10];
 
-    nwhite = nother = 0; /*eso es lo mismo que hacer nwhite = 0; y nother = 0; en lineas separadas*/
+    nOfSpaces = nOfTabs = nOfLines = nOfOthers = 0;
 
-    for ( i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++)
     {
-        ndigit[i] = 0;
-            
+        nDigits[i] = 0;
     }
-
-    while ((c = getchar()) != EOF)
+    
+    while ((character = getchar()) != EOF)
     {
-        if (c >= '0' && c <= '9')
+        if (character >= '0' && character <= '9')
         {
-                ++ndigit[c-'0'];
-        } else if (c == ' ' || c == '\n' || c == '\t')
+            nDigits[character - '0']++;
+        } else if (character == ' ')
         {
-                ++nwhite;
+            nOfSpaces++;
+        } else if (character == '\t')
+        {
+            nOfTabs++;
+        } else if (character == '\n')
+        {
+            nOfLines++;
         } else {
-                ++nother;
+            nOfOthers++;
         }
+        
     }
 
-    printf("digitos =");
+    printf("Digitos = ");
 
-    for ( i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++)
     {
-        printf(" %d", ndigit[i]);   
+        printf("%d", nDigits[i]);
     }
 
-    printf(", espacios en blanco = %d, otros = %d\n", nwhite, nother);
+    printf(", espacios = %d, tabuladores = %d, saltos de linea = %d y otros = %d", nOfSpaces, nOfTabs, nOfLines, nOfOthers);
+    
     
 }

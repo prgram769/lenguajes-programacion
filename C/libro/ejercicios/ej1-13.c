@@ -4,56 +4,46 @@ el histograma con las barras horizontales pero es un desafio con las verticales*
 #include <stdio.h>
 
 int main(void) {
-    int wordsArray[20]; /*Primero creamos las variables*/
-    int counter, characterBefore, option;
-    int i = 0;
-    
-    while ((counter = getchar()) != NULL)
-    {   /*Voy a usar el getchar para ir obteniendo caracteres mientras que counter sea distinto de NULL, como eso es asi, pillará caracteres siempre,
-        dentro hare comprobaciones para saber cuando hay una nueva palabra y tambien a cada palabra que salga el programa preguntara si quiere seguir*/
-        if (counter != ' ' || counter != '\t' || counter != '\n')
-        {
-            characterBefore = 'l'; /*asignamos 'l' a characterBefore para decir que antes del espacio \t o \n habia una letra y poder meter la palabra en el array*/
-        }
+    int character, wordSize, characterBefore, nOfWords, i;
 
-        if (characterBefore == 'l') /*Comprobamos que characterBefore es 'l' y si lo es añadimos al array la palabra que esta almacenada en counter*/
+    wordSize = nOfWords = characterBefore = i = 0;
+    
+    int words[50];
+
+    while ((character = getchar()) != EOF)
+    {
+        if (character != ' ' && character != '\t' && character != '\n')
         {
-            wordsArray[i] = counter;
+            wordSize++;
+
+            words[i] = wordSize;
+
+            printf("%d\n",words[i]);
 
             i++;
+
+            printf("%d",words[i]);
+
+            characterBefore = 'l';
         }
 
-        /*codigo generar histograma*/
-        if (i > 0)
+        if (character == ' ' || character == '\t' || character == '\n')
         {
-            for (int l = 0; l < sizeof(i); l++)
+            if (characterBefore == 'l')
             {
-                
-            }
-        }
-
-        if (i == i + 1) /*verificamos que i sea igual a i + 1 y en caso de que asi sea preguntaremos si quiere seguir o no*/
-        {
-            printf("\n¿Quieres seguir?\n1.Si. 2.No.");
-
-            if (scanf("%d", &option) == 1)
-            {
-                if (option == 2)
-                {
-                    
-
-                    return 0;
-                } else {
-                    printf("\nDebes introducir valores contemplados.");
-                }
-                
-            } else {
-                printf("\nDebes introducir valores validos.");
+                nOfWords++;
             }
             
+            characterBefore = 's';
         }
         
-        
+    }
+
+    printf("\nEl numero de palabras es %d\n\n", nOfWords);
+
+    for (i = 0; i <= words[i]; i++)
+    {
+        printf("|\n");
     }
     
 }
