@@ -10,6 +10,13 @@ int main(void) {
     
     int words[50];
 
+    for (i = 0; i < 50; i++)
+    {
+        words[i] = 0;
+    }
+    
+    i = 0;
+
     while ((character = getchar()) != EOF)
     {
         if (character != ' ' && character != '\t' && character != '\n')
@@ -18,22 +25,19 @@ int main(void) {
 
             words[i] = wordSize;
 
-            printf("%d\n",words[i]);
-
             i++;
-
-            printf("%d",words[i]);
 
             characterBefore = 'l';
         }
 
         if (character == ' ' || character == '\t' || character == '\n')
         {
+
             if (characterBefore == 'l')
             {
                 nOfWords++;
             }
-            
+
             characterBefore = 's';
         }
         
@@ -43,7 +47,9 @@ int main(void) {
 
     for (i = 0; i <= words[i]; i++)
     {
+
         printf("|\n");
+        
     }
     
 }
