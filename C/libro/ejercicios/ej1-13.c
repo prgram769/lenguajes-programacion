@@ -5,41 +5,51 @@ el histograma con las barras horizontales pero es un desafio con las verticales*
 
 int main(void) {
     int character, wordSize, characterBefore, nOfWords, i;
-
-    wordSize = nOfWords = characterBefore = i = 0;
-    
     int words[50];
+
+    character = wordSize = characterBefore = nOfWords = i = 0;
 
     for (i = 0; i < 50; i++)
     {
         words[i] = 0;
     }
-    
-    i = 0;
 
+    i = 0;
+    
     while ((character = getchar()) != EOF)
     {
         if (character != ' ' && character != '\t' && character != '\n')
         {
-            wordSize++;
+            if (characterBefore != 's')
+            {
+                wordSize++;
 
-            words[i] = wordSize;
+                words[i] = wordSize;
 
-            i++;
+                i++;
 
-            characterBefore = 'l';
+                characterBefore = 'l';
+            } else if (characterBefore == 's')
+            {
+                words[i] = 0;
+
+                i++;
+            }
+            
+            
         }
 
         if (character == ' ' || character == '\t' || character == '\n')
         {
-
             if (characterBefore == 'l')
             {
                 nOfWords++;
             }
 
             characterBefore = 's';
+            
         }
+        
         
     }
 
@@ -47,9 +57,12 @@ int main(void) {
 
     for (i = 0; i <= words[i]; i++)
     {
-
-        printf("|\n");
+        if (words[i] == 0)
+        {
+            printf("\t");
+        }
         
+        printf("|\n");
     }
     
 }
