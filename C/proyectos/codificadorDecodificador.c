@@ -2,9 +2,13 @@
 
 #include <stdio.h>
 
-float encodeBinary(float number) {
+float encodeBinary(int number) {
     int binaryArray[256];
-    
+    int i = 0;
+    int interNode;
+
+    binaryArray[i] = number % 2;
+
     
 }
 
@@ -26,6 +30,11 @@ int main(void) {
                 if (option == 1)
                 {
                     printf("\nWelcome to de encode system, you have to enter the number that you want to encode in binary:\n\n");
+                    int binario = 0b1011;
+
+                    printf("%d", binario);
+
+                    encodeBinary(numberToEncode);
 
                 } else if (option == 2)
                 {
