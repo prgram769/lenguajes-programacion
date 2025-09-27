@@ -3,66 +3,60 @@ el histograma con las barras horizontales pero es un desafio con las verticales*
 
 #include <stdio.h>
 
+#define MAX 20
+
 int main(void) {
-    int character, wordSize, characterBefore, nOfWords, i;
-    int words[50];
+    int character, countOfCharacters, i;
+    int word[MAX];
 
-    character = wordSize = characterBefore = nOfWords = i = 0;
-
-    for (i = 0; i < 50; i++)
+    countOfCharacters = 0;
+    
+    for (i = 0; i <= MAX; i++)
     {
-        words[i] = 0;
+        word[i] = 0;
     }
-
-    i = 0;
     
     while ((character = getchar()) != EOF)
     {
-        if (character != ' ' && character != '\t' && character != '\n')
-        {
-            if (characterBefore != 's')
-            {
-                wordSize++;
-
-                words[i] = wordSize;
-
-                i++;
-
-                characterBefore = 'l';
-            } else if (characterBefore == 's')
-            {
-                words[i] = 0;
-
-                i++;
-            }
-            
-            
-        }
-
         if (character == ' ' || character == '\t' || character == '\n')
         {
-            if (characterBefore == 'l')
+            printf("| ");
+
+            for (i = 0; i < countOfCharacters; i++)
             {
-                nOfWords++;
+                printf("*");
             }
 
-            characterBefore = 's';
+            printf("\n");
+
+            countOfCharacters = 0;
             
         }
-        
-        
-    }
 
-    printf("\nEl numero de palabras es %d\n\n", nOfWords);
-
-    for (i = 0; i <= words[i]; i++)
-    {
-        if (words[i] == 0)
+        if (character != ' ' && character != '\t' && character != '\n')
         {
-            printf("\t");
+            if (countOfCharacters > MAX)
+            {
+                character = '\n';
+
+                printf("\nTe has excedido del numero maximo de caracteres.");
+
+                countOfCharacters = 0;
+            }
+
+            if (countOfCharacters <= MAX)
+            {
+                word[countOfCharacters] = character;
+
+                countOfCharacters++;
+            }
+            
+        } else {
+            word[countOfCharacters] += '\0';
+
+            countOfCharacters = 0;
         }
         
-        printf("|\n");
     }
     
 }
