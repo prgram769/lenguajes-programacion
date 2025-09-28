@@ -195,29 +195,6 @@ int main(void) {
 
             if (scanf("%d", &option) == 1)
             {
-                if (option == 1)
-                {
-                    printf("\nEnter the number in binary that you want to decode to decimal:\n\n");
-
-                    if (scanf("%d", &numberToDecode) == 1)
-                    {   
-                        printf("%0b", numberToDecode);
-                    } else {
-                        printf("\nYou must enter valid data.");
-                    }
-                    
-                } else if (option == 2)
-                {
-                    /* code */
-                } else if (option == 3)
-                {
-                    /* code */
-                } else if (option == 4)
-                {
-                    /* code */
-                } else {
-                    printf("\nYou must enter the requested data.");
-                }
                 
             }
             
