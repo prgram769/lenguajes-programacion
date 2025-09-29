@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int encodeBinary(int number) {
+int encodeToBinary(int number) {
     int binaryRestArray[256];
     int i, counter;
 
@@ -25,7 +25,7 @@ int encodeBinary(int number) {
     }
 }
 
-int encodeOctal(int number) {
+int encodeToOctal(int number) {
     int octalRestArray[256];
     int i, counter;
 
@@ -125,6 +125,14 @@ int encodeToHexadecimal(int number) {
     
 }
 
+int decodeFromBinary(int number) {
+    int binaryArray[256];
+    int i, counter;
+    int lenghOfNumber = sizeof(number);
+    
+    printf("El tamaño del numero es: %d", lenghOfNumber);
+}
+
 int main(void) {
     int option; 
 
@@ -147,7 +155,7 @@ int main(void) {
                     
                     if (scanf("%d", &numberToEncode) == 1)
                     {
-                        encodeBinary(numberToEncode);
+                        encodeToBinary(numberToEncode);
                     } else {
                         printf("\nYou must enter valid data.");
                     }
@@ -158,7 +166,7 @@ int main(void) {
 
                     if (scanf("%d", &numberToEncode) == 1)
                     {
-                        encodeOctal(numberToEncode);
+                        encodeToOctal(numberToEncode);
                     } else {
                         printf("\nYou must enter valid data.");
                     }
@@ -195,7 +203,28 @@ int main(void) {
 
             if (scanf("%d", &option) == 1)
             {
+                printf("\nWelcome to decode system, you have to enter the number that you want to decode from binary:\n\n");
+
+                if (scanf("%d", &numberToDecode) == 1)
+                {
+                    decodeFromBinary(numberToDecode);
+                } else {
+                    printf("\nYou must enter valid data.");
+                }
                 
+            } else if (option == 2)
+            {
+                ;
+            } else if (option == 3)
+            {
+                ;
+            } else if (option == 4)
+            {
+                printf("\nLeaving...");
+
+                return 0;
+            } else {
+                printf("\nYou must enter the requested data.");
             }
             
         } else {
