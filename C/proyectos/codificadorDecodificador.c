@@ -125,8 +125,10 @@ int encodeToHexadecimal(int number) {
     
 }
 
-int decodeFromBinary(int numbers[]) {
-    
+int decodeFromBinary(int number) {
+    int lengh = sizeof(number);
+
+    printf("%d\n", lengh);
 }
 
 int main(void) {
@@ -193,8 +195,7 @@ int main(void) {
             
         } else if (option == 2)
         {
-            int numberToDecode[256];
-            int i;
+            int number;
 
             printf("\nWhat what system do you want to decode to decimal:\n1. Binary. 2. Octal. 3.Hexadecimal. 4.Exit.\n\n");
 
@@ -202,15 +203,34 @@ int main(void) {
             {
                 printf("\nWelcome to decode system, you have to enter the number that you want to decode from binary:\n\n");
 
-                while ((numberToDecode[i] = getchar()) != EOF)
+                if (scanf("%d", &number) == 1)
                 {
-                    if (numberToDecode[i] == 0 || numberToDecode[i] == 1)
+
+                    int arrayNumbers[256];
+                    int module = 10;
+                    int division = 10;
+
+                    int lengh = 0;
+                    for (int i = 0; i < 1000000000000; i++)
                     {
-                        i++;
-                    } else {
-                        printf("\nError: Binary system only use two simbols (0 and 1).");
+                        lengh = number / 10;
+                        
+                        number = number / 10;
+
+                        if (lengh != 0)
+                        {
+                            printf("Prueba: %d\n", lengh);
+                        }
+
+                        if (number == 0)
+                        {
+                            break;
+                        }
+                        
                     }
-                    
+                                        
+                } else {
+                    printf(" ");
                 }
                 
             } else if (option == 2)

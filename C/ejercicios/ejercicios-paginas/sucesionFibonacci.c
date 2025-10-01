@@ -11,4 +11,24 @@
 int main(void) {
     int number, numberBefore, fibonacci, i;
     
+    number = 1;
+
+    numberBefore = 0;
+    
+    for (i = 0; i <= 50; i++)
+    {
+        fibonacci = number + numberBefore;
+
+        if (i == 0)
+        {
+            printf("0, ");
+        } else if (i == 1) {
+            printf("1, 1, ");
+        } else {
+            printf("%d, ", fibonacci);
+        }
+
+        numberBefore = fibonacci;
+    }
+    
 }
