@@ -11,7 +11,7 @@ int encodeToBinary(int number) {
     while (number > 0)
     {
         binaryRestArray[i] = number % 2;
-// ~
+
         counter++;
 
         i++;
@@ -126,9 +126,28 @@ int encodeToHexadecimal(int number) {
 }
 
 int decodeFromBinary(int number) {
-    int lengh = sizeof(number);
+    /*
+    int arrayNumbers[256];
 
-    printf("%d\n", lengh);
+    int modules = 10;
+    int divisions = 1;
+
+    int numberLengh;
+
+    while (number != 0)
+    {
+        number / 10;
+
+        numberLengh++;
+    }
+                    
+    for (int i = 0; i < numberLengh; i++)
+    {
+        arrayNumbers[i] = number % modules / divisions;
+
+        printf("\nPrueba 1 %d", arrayNumbers[i]);
+    }
+     */               
 }
 
 int main(void) {
@@ -195,7 +214,7 @@ int main(void) {
             
         } else if (option == 2)
         {
-            int number;
+            int numberToDecode;
 
             printf("\nWhat what system do you want to decode to decimal:\n1. Binary. 2. Octal. 3.Hexadecimal. 4.Exit.\n\n");
 
@@ -203,32 +222,53 @@ int main(void) {
             {
                 printf("\nWelcome to decode system, you have to enter the number that you want to decode from binary:\n\n");
 
-                if (scanf("%d", &number) == 1)
+                if (scanf("%d", &numberToDecode) == 1)
                 {
-
+                    /*
                     int arrayNumbers[256];
                     int module = 10;
                     int division = 10;
 
-                    int lengh = 0;
-                    for (int i = 0; i < 1000000000000; i++)
+                    int prueba = number % 100 / 10;
+
+                    printf("\nPrueba 1 %d", number % module);
+                    printf("\nPrueba 2 %d", prueba);
+                    */ 
+                   
+                    int arrayNumbers[256];
+
+                    int modules = 10;
+                    int divisions = 1;
+
+                    int numberLengh;
+                    int originNumber = numberToDecode;
+
+                    while (numberToDecode != 0)
                     {
-                        lengh = number / 10;
-                        
-                        number = number / 10;
+                        numberToDecode / 10;
 
-                        if (lengh != 0)
-                        {
-                            printf("Prueba: %d\n", lengh);
-                        }
+                        numberToDecode = numberToDecode / 10;
 
-                        if (number == 0)
+                        numberLengh++;
+                    }
+                    
+                    numberToDecode = originNumber;
+
+                    for (int i = 0; i < numberLengh; i++)
+                    {
+                        numberLengh--;
+
+                        if (numberLengh == 0)
                         {
                             break;
                         }
                         
+                        arrayNumbers[i] = numberToDecode % modules / divisions;
+
+                        printf("\nprueba %d", arrayNumbers[i]);
+                        
                     }
-                                        
+                    
                 } else {
                     printf(" ");
                 }
@@ -257,3 +297,5 @@ int main(void) {
     }
     
 }
+
+/*Program made from rugby01*/

@@ -14,20 +14,15 @@ int main(void) {
     number = 1;
 
     numberBefore = 0;
+
+    fibonacci = 0;
     
     for (i = 0; i <= 50; i++)
     {
+        printf("%d, ",fibonacci);
+
         fibonacci = number + numberBefore;
-
-        if (i == 0)
-        {
-            printf("0, ");
-        } else if (i == 1) {
-            printf("1, 1, ");
-        } else {
-            printf("%d, ", fibonacci);
-        }
-
+        
         numberBefore = fibonacci;
     }
     
