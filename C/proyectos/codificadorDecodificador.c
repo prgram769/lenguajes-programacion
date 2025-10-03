@@ -237,16 +237,19 @@ int main(void) {
                    
                     int arrayNumbers[256];
 
+                    int i;
+
                     int modules = 10;
                     int divisions = 1;
 
-                    int numberLengh;
+                    int numberLengh = 0;
+                    int numberAuxLengh;
+
                     int originNumber = numberToDecode;
+                    numberAuxLengh = numberLengh;
 
                     while (numberToDecode != 0)
                     {
-                        numberToDecode / 10;
-
                         numberToDecode = numberToDecode / 10;
 
                         numberLengh++;
@@ -254,23 +257,28 @@ int main(void) {
                     
                     numberToDecode = originNumber;
 
-                    for (int i = 0; i < numberLengh; i++)
-                    {
-                        numberLengh--;
-
-                        if (numberLengh == 0)
-                        {
-                            break;
-                        }
-                        
+                    for (i = 0; i < numberLengh; i++)
+                    {   
                         arrayNumbers[i] = numberToDecode % modules / divisions;
 
-                        printf("\nprueba %d", arrayNumbers[i]);
-                        
+                        if (arrayNumbers[i] == 0 || arrayNumbers[i] == 1)
+                        {
+                            modules *= 10;
+                            divisions *= 10;
+
+                            printf("\nNumber: %d", arrayNumbers[i]);
+                        } else {
+                            printf("\nError: Binary system only have 2 simbols, 1 and 0.");
+                        }                        
+                    }
+
+                    for (numberLengh; numberLengh >= 0; numberLengh--)
+                    {
+                        arrayNumbers[i] = arrayNumbers[numberLengh];
                     }
                     
                 } else {
-                    printf(" ");
+                    printf("\nYou must enter valid data.");
                 }
                 
             } else if (option == 2)
