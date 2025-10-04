@@ -1,6 +1,7 @@
 /*This is a program to encode and decode nums in decimal to hexadecimal, binary and octal and conversely, ONLY NUMBERS WITHOUT COMMA*/
 
 #include <stdio.h>
+#include <math.h>
 
 int encodeToBinary(int number) {
     int binaryRestArray[256];
@@ -267,16 +268,22 @@ int main(void) {
                             divisions *= 10;
 
                             printf("\nNumber: %d", arrayNumbers[i]);
+
+                            int TNF = 0;
+                            
+                            for (i = 0; i < numberLengh; i++)
+                            {
+
+                                TNF = arrayNumbers[i] * pow(2, i);
+                            }
+
+                            printf("Prueba %d", TNF);
+                            
                         } else {
                             printf("\nError: Binary system only have 2 simbols, 1 and 0.");
-                        }                        
+                        }    
                     }
 
-                    for (numberLengh; numberLengh >= 0; numberLengh--)
-                    {
-                        arrayNumbers[i] = arrayNumbers[numberLengh];
-                    }
-                    
                 } else {
                     printf("\nYou must enter valid data.");
                 }
