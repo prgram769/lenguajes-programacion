@@ -127,28 +127,63 @@ int encodeToHexadecimal(int number) {
 }
 
 int decodeFromBinary(int number) {
-    /*
     int arrayNumbers[256];
+
+    int i;
 
     int modules = 10;
     int divisions = 1;
 
-    int numberLengh;
+    int numberLengh = 0;
+
+    int originNumber = number;
 
     while (number != 0)
     {
-        number / 10;
+        number = number / 10;
 
         numberLengh++;
     }
                     
-    for (int i = 0; i < numberLengh; i++)
-    {
+    number = originNumber;
+
+    int counter;
+
+    int TNF = 0;
+
+    int validateGood = 0;
+
+    for (i = 0; i < numberLengh; i++)
+    {   
         arrayNumbers[i] = number % modules / divisions;
 
-        printf("\nPrueba 1 %d", arrayNumbers[i]);
+        if (arrayNumbers[i] == 0 || arrayNumbers[i] == 1)
+        {
+            modules *= 10;
+            divisions *= 10;
+
+            printf("\nDigit: %d", arrayNumbers[i]);
+
+            TNF = 0;
+                            
+            for (counter = 0; counter < numberLengh; counter++)
+            {
+                TNF += arrayNumbers[counter] * pow(2, counter);
+            }
+
+            return 1;
+                            
+        } else {
+            printf("\nError: Binary system only have 2 simbols, 1 and 0.");
+
+            return 0;
+        }    
     }
-     */               
+                            
+}
+
+int validateGood(validateNumber) {
+    int itsGood = validateNumber;
 }
 
 int main(void) {
@@ -225,68 +260,13 @@ int main(void) {
 
                 if (scanf("%d", &numberToDecode) == 1)
                 {
-                    /*
-                    int arrayNumbers[256];
-                    int module = 10;
-                    int division = 10;
+                    int validateGood;
 
-                    int prueba = number % 100 / 10;
-
-                    printf("\nPrueba 1 %d", number % module);
-                    printf("\nPrueba 2 %d", prueba);
-                    */ 
-                   
-                    int arrayNumbers[256];
-
-                    int i;
-
-                    int modules = 10;
-                    int divisions = 1;
-
-                    int numberLengh = 0;
-                    int numberAuxLengh;
-
-                    int originNumber = numberToDecode;
-                    numberAuxLengh = numberLengh;
-
-                    while (numberToDecode != 0)
-                    {
-                        numberToDecode = numberToDecode / 10;
-
-                        numberLengh++;
-                    }
+                    validateGood = decodeFromBinary(numberToDecode);
                     
-                    numberToDecode = originNumber;
-
-                    for (i = 0; i < numberLengh; i++)
-                    {   
-                        arrayNumbers[i] = numberToDecode % modules / divisions;
-
-                        if (arrayNumbers[i] == 0 || arrayNumbers[i] == 1)
-                        {
-                            modules *= 10;
-                            divisions *= 10;
-
-                            printf("\nNumber: %d", arrayNumbers[i]);
-
-                            int TNF = 0;
-                            
-                            for (i = 0; i < numberLengh; i++)
-                            {
-
-                                TNF = arrayNumbers[i] * pow(2, i);
-                            }
-
-                            printf("Prueba %d", TNF);
-                            
-                        } else {
-                            printf("\nError: Binary system only have 2 simbols, 1 and 0.");
-                        }    
-                    }
-
                 } else {
                     printf("\nYou must enter valid data.");
-                }
+                }  
                 
             } else if (option == 2)
             {
