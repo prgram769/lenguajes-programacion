@@ -171,19 +171,86 @@ int decodeFromBinary(int number) {
                 TNF += arrayNumbers[counter] * pow(2, counter);
             }
 
-            return 1;
+            validateGood = 1;
                             
         } else {
-            printf("\nError: Binary system only have 2 simbols, 1 and 0.");
+            validateGood = 0;
 
-            return 0;
+            printf("\nError: Binary system only have 2 symbols, 1 and 0.");
         }    
+    }
+
+    if (validateGood == 1)
+    {
+        printf("\n\nThe number that you introduced in binary, in decimal is %d.", TNF);
+    } else {
+        printf("\nYou must run again the program if you want decode any number.");
     }
                             
 }
 
-int validateGood(validateNumber) {
-    int itsGood = validateNumber;
+int decodeFromOctal(int number) {
+    int arrayNumbers[256];
+
+    int i;
+
+    int modules = 10;
+    int divisions = 1;
+
+    int numberLengh = 0;
+
+    int originNumber = number;
+
+    while (number != 0)
+    {
+        number = number / 10;
+
+        numberLengh++;
+    }
+    
+    number = originNumber;
+
+    int counter;
+
+    int TNF = 0;
+
+    int validateGood;
+
+    for (i = 0; i < numberLengh; i++)
+    {
+        arrayNumbers[i] = number % modules / divisions;
+
+        if (arrayNumbers[i] >= 0 && arrayNumbers[i] <= 7)
+        {
+            modules *= 10;
+            divisions *= 10;
+
+            printf("Digit: %d", arrayNumbers[i]);
+
+            TNF = 0;
+
+            for (counter = 0; counter < numberLengh; counter++)
+            {
+                TNF += arrayNumbers[counter] * pow(8, counter);
+            }        
+
+            validateGood = 1;
+
+        } else {
+            validateGood = 0;
+            
+            printf("\nError: Octal system only have 8 symbols, from 0 to 7.");
+        }
+        
+    }
+
+    if (validateGood == 1)
+    {
+        printf("\n\nThe number that you introduced in octal, in decimal is %d.", TNF);
+    } else {
+        printf("\nYou must run again the program if you want decode any number.");
+    }
+    
 }
 
 int main(void) {
@@ -260,17 +327,22 @@ int main(void) {
 
                 if (scanf("%d", &numberToDecode) == 1)
                 {
-                    int validateGood;
-
-                    validateGood = decodeFromBinary(numberToDecode);
-                    
+                    decodeFromBinary(numberToDecode);   
                 } else {
                     printf("\nYou must enter valid data.");
                 }  
                 
             } else if (option == 2)
             {
-                ;
+                printf("\nWelcome to decode system, you have to enter the number that you want to decode from binary:\n\n");
+
+                if (scanf("%d", &numberToDecode) == 1)
+                {
+                    decodeFromOctal(numberToDecode);
+                } else {
+                    printf("\nYou must enter valid data.");
+                }
+                
             } else if (option == 3)
             {
                 ;
