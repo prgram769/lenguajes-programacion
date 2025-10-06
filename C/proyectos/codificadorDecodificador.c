@@ -177,6 +177,8 @@ int decodeFromBinary(int number) {
             validateGood = 0;
 
             printf("\nError: Binary system only have 2 symbols, 1 and 0.");
+
+            break;
         }    
     }
 
@@ -225,7 +227,7 @@ int decodeFromOctal(int number) {
             modules *= 10;
             divisions *= 10;
 
-            printf("Digit: %d", arrayNumbers[i]);
+            printf("\nDigit: %d", arrayNumbers[i]);
 
             TNF = 0;
 
@@ -240,6 +242,8 @@ int decodeFromOctal(int number) {
             validateGood = 0;
             
             printf("\nError: Octal system only have 8 symbols, from 0 to 7.");
+
+            break;
         }
         
     }
@@ -251,6 +255,10 @@ int decodeFromOctal(int number) {
         printf("\nYou must run again the program if you want decode any number.");
     }
     
+}
+
+int decodeFromHexadecimal(number) {
+    int arrayNumbers[256];
 }
 
 int main(void) {
@@ -323,46 +331,51 @@ int main(void) {
 
             if (scanf("%d", &option) == 1)
             {
-                printf("\nWelcome to decode system, you have to enter the number that you want to decode from binary:\n\n");
-
-                if (scanf("%d", &numberToDecode) == 1)
+                if (option == 1)
                 {
-                    decodeFromBinary(numberToDecode);   
-                } else {
-                    printf("\nYou must enter valid data.");
-                }  
+                    printf("\nWelcome to decode system, you have to enter the number that you want to decode from binary:\n\n");
+
+                    if (scanf("%d", &numberToDecode) == 1)
+                    {
+                        decodeFromBinary(numberToDecode);   
+                    } else {
+                        printf("\nYou must enter valid data.");
+                    }                  
+                } else if (option == 2) {
+                    printf("\nWelcome to decode system, you have to enter the number that you want to decode from octal:\n\n");
+
+                    if (scanf("%d", &numberToDecode) == 1)
+                    {
+                        decodeFromOctal(numberToDecode);
+                    } else {
+                        printf("\nYou must enter valid data.");
+                    }
                 
-            } else if (option == 2)
-            {
-                printf("\nWelcome to decode system, you have to enter the number that you want to decode from binary:\n\n");
+                } else if (option == 3) {
+                    printf("\nWelcome to decode system, you have to enter the number that you want to decode from Hexadecimal: \n\n");
 
-                if (scanf("%d", &numberToDecode) == 1)
-                {
-                    decodeFromOctal(numberToDecode);
+                    if (scanf("%d", &numberToDecode) == 1)
+                    {
+                        decodeFromHexadecimal(numberToDecode);
+                    } else {
+                        printf("\nYou must enter valid data.");
+                    }
+                    
+                } else if (option == 4) {
+                    printf("\nLeaving...");
+
+                    return 0;
                 } else {
-                    printf("\nYou must enter valid data.");
+                    printf("\nYou must enter the requested data.");
                 }
                 
-            } else if (option == 3)
-            {
-                ;
-            } else if (option == 4)
-            {
-                printf("\nLeaving...");
-
-                return 0;
             } else {
                 printf("\nYou must enter the requested data.");
             }
-            
-        } else {
-            printf("\nYou must enter the requested data.");
-        }
         
     } else {
         printf("\nYou must enter valid data.");
     }
-    
 }
-
+}
 /*Program made from rugby01*/
