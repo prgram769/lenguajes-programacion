@@ -259,6 +259,69 @@ int decodeFromOctal(int number) {
 
 int decodeFromHexadecimal(number) {
     int arrayNumbers[256];
+
+    int i;
+
+    int modules = 10;
+    int divisions = 1;
+
+    int numberLengh = 0;
+
+    int originNumber = number;
+
+    while (number != 0)
+    {
+        number = number / 10;
+
+        numberLengh++;
+    }
+
+    number = originNumber;
+
+    int counter;
+
+    int TNF = 0;
+
+    int validateGood;
+
+    for (i = 0; i < numberLengh; i++)
+    {
+        arrayNumbers[i] = number % modules / divisions;
+
+        if (arrayNumbers[i] >= 0 && arrayNumbers[i] <= 9)
+        {
+            modules *= 10;
+            divisions *= 10;
+
+            printf("\nDigit: %d", arrayNumbers[i]);
+
+            TNF = 0;
+
+            for (counter = 0; counter < numberLengh; counter++)
+            {
+                TNF += arrayNumbers[counter] * pow(16, counter);
+            }
+
+            validateGood = 1;
+            
+        } else {
+            validateGood = 0;
+
+            printf("\nError: Hexadecimal system only have 16 symbols, from 0 to 9 and A to F.");
+
+            break;
+        }
+        
+    }
+
+    if (validateGood == 1)
+    {
+        printf("\n\nThe number that you introduced in hexadecimal, in decimal is %d" , TNF);
+
+    } else {
+        printf("\nYou must run again the program if you want decode any number.");
+    }
+    
 }
 
 int main(void) {
