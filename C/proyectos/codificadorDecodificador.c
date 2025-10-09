@@ -258,19 +258,19 @@ int decodeFromOctal(int number) {
     
 }
 
-int decodeFromHexadecimal(char number[]) {
-    int i, numberLengh;
+int decodeFromHexadecimal(char *number) {
+    int i;
 
     int arrayLengh = sizeof(number) / number[0];
 
     for (i = 0; i < arrayLengh; i++)
     {
-        printf("%c", number[i]);
+        printf("%c\n", number[i]);
     }
 
-    printf("%d", numberLengh);
+    printf("%d\n\n", arrayLengh);
 
-    printf("%s", number);
+    printf("%c", number[1]);
 }
 
 int main(void) {
