@@ -259,7 +259,18 @@ int decodeFromOctal(int number) {
 }
 
 int decodeFromHexadecimal(char number[]) {
-    printf("%s", number[0]);
+    int i, numberLengh;
+
+    int arrayLengh = sizeof(number) / number[0];
+
+    for (i = 0; i < arrayLengh; i++)
+    {
+        printf("%c", number[i]);
+    }
+
+    printf("%d", numberLengh);
+
+    printf("%s", number);
 }
 
 int main(void) {
@@ -359,9 +370,7 @@ int main(void) {
 
                     printf("\nWelcome to decode system, you have to enter the number that you want to decode from Hexadecimal: \n\n");
 
-                    fgets(numberToDecode, maxLengh, stdin);
-
-                    numberToDecode[strcspn(numberToDecode, "\r\n")] == 0;
+                    scanf("%s", numberToDecode);
 
                     decodeFromHexadecimal(numberToDecode);
                     
