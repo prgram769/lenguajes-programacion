@@ -258,17 +258,24 @@ int decodeFromOctal(int number) {
     
 }
 
-int decodeFromHexadecimal(char *number) {
+int decodeFromHexadecimal(char* number) {
     int i;
     int counter = 0;
     int arrayLengh = strlen(number);
-    int arrayNums[arrayLengh];
+    int arrayNumbers[arrayLengh];
 
-    for (i = arrayLengh; i >= 0; i--)
+    for (i = 0; i <= arrayLengh - 1; i++)
+    {
+        arrayNumbers[i] = 0;
+    }
+    
+    for (i = arrayLengh - 1; i >= 0; i--)
     {
         printf("%c\n", number[i]);
 
-        arrayNums[counter] = number[i];
+        arrayNumbers[counter] = number[i] * pow(16, i);
+
+        printf("El numero del array nuevo es: %d\n", arrayNumbers[counter]);
 
         counter++;
     }
