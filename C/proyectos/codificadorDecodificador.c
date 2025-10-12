@@ -25,6 +25,8 @@ int encodeToBinary(int number) {
     {            
         printf("%d", binaryRestArray[i]);
     }
+
+    return 0;
 }
 
 int encodeToOctal(int number) {
@@ -49,6 +51,7 @@ int encodeToOctal(int number) {
         printf("%d", octalRestArray[i]);
     }
     
+    return 0;
 }
 
 int encodeToHexadecimal(int number) {
@@ -124,7 +127,8 @@ int encodeToHexadecimal(int number) {
     {
         printf("%c", hexadecimalRestArray[i]);
     }
-    
+
+    return 0;
 }
 
 int decodeFromBinary(int number) {
@@ -163,8 +167,6 @@ int decodeFromBinary(int number) {
             modules *= 10;
             divisions *= 10;
 
-            printf("\nDigit: %d", arrayNumbers[i]);
-
             TNF = 0;
                             
             for (counter = 0; counter < numberLengh; counter++)
@@ -190,6 +192,7 @@ int decodeFromBinary(int number) {
         printf("\nYou must run again the program if you want decode any number.");
     }
                             
+    return 0;
 }
 
 int decodeFromOctal(int number) {
@@ -228,8 +231,6 @@ int decodeFromOctal(int number) {
             modules *= 10;
             divisions *= 10;
 
-            printf("\nDigit: %d", arrayNumbers[i]);
-
             TNF = 0;
 
             for (counter = 0; counter < numberLengh; counter++)
@@ -256,44 +257,67 @@ int decodeFromOctal(int number) {
         printf("\nYou must run again the program if you want decode any number.");
     }
     
+    return 0;
 }
 
 int decodeFromHexadecimal(char number[]) {
     int i, counter;
     int arrayLengh = strlen(number);
     int arrayNumbers[arrayLengh];
-    
-    // for (i = arrayLengh - 1; i >= 0; i--)
-    // {
-    //     printf("\n%c\n", number[i]);
 
-    //     arrayNumbers[counter] = number[i] * pow(16, i);
+    char individualNumber;
 
-    //     printf("El numero del array nuevo es: %d\n", arrayNumbers[counter]);
+    int TNF = 0;
 
-    //     counter++;
-    // }
-    
     counter = arrayLengh - 1;
 
     for (i = 0; i < arrayLengh; i++)
     {
-        printf("\n%c\n", number[i]);
+        switch (number[i])
+        {
+        case 'A':
+            arrayNumbers[i] = 10 * pow(16, counter);
+            counter--;
+            break;
+        case 'B':
+            arrayNumbers[i] = 11 * pow(16, counter);
+            counter--;
+            break;
+        case 'C':
+            arrayNumbers[i] = 12 * pow(16, counter);
+            counter--;
+            break;
+        case 'D':
+            arrayNumbers[i] = 13 * pow(16, counter);
+            counter--;
+            break;
+        case 'E':
+            arrayNumbers[i] = 14 * pow(16, counter);
+            counter--;
+            break;
+        case 'F':
+            arrayNumbers[i] = 15 * pow(16, counter);
+            counter--;
+            break;
+        default:
+            individualNumber = number[i] - '0';
 
-        char individualNumber = number[i] - '0';
+            arrayNumbers[i] = individualNumber * pow(16, counter);
 
-        arrayNumbers[i] = individualNumber * pow(16, counter);
+            counter--;
+            break;
+        }
 
-        printf("El numero del array nuevo es: %d\n", arrayNumbers[i]);
-
-        counter--;
     }
 
-    for (i = 0; i < count; i++)
+    for (i = 0; i < arrayLengh; i++)
     {
-        /* code */
+        TNF += arrayNumbers[i];
     }
     
+    printf("The number that you introduced in hexadecimal in decimal is: %d", TNF);
+
+    return 0;
 }
 
 int main(void) {
