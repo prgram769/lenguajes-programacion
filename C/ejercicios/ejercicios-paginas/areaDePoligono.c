@@ -11,13 +11,55 @@
 float polygonArea(int polygon) {
     if (polygon == 1)
     {
-        /* code */
+        float base, high;
+
+        printf("\nGive me the base and the high of the triangle: ");
+
+        if (scanf("%f %f", &base, &high) == 2)
+        {
+            float area = base * high / 2;
+
+            return area;
+        } else {
+            printf("\nYou must enter valid data.\n");
+
+            return 0;
+        }
+        
     } else if (polygon == 2)
     {
-        /* code */
+        float side;
+
+        printf("\nGive me the side of the square: ");
+
+        if (scanf("%f", &side) == 1)
+        {
+            float area = side * side;
+
+            return area;
+        } else {
+            printf("\nYou must enter valid data.\n");
+
+            return 0;
+        }
+        
     } else if (polygon == 3)
     {
-        /* code */
+        float base, high;
+
+        printf("\nGive me the base and the high of the rectangle: ");
+
+        if (scanf("%f %f", &base, &high) == 2)
+        {
+            float area = base * high;
+
+            return area;
+        } else {
+            printf("\nYou must enter valid data.\n");
+
+            return 0;
+        }
+        
     } else {
         printf("\nYou must enter requered data.");
     } 
@@ -34,9 +76,20 @@ int main(void) {
 
     if (scanf("%d", &option) == 1)
     {
-        polygonArea(option);
+        if (option == 1)
+        {
+            printf("\nThe area of triangle like the measures is %.2f", polygonArea(option));
+        } else if (option == 2)
+        {
+            printf("\nThe area of the square like the measures is %.2f", polygonArea(option));
+        } else if (option == 3)
+        {
+            printf("\nThe area of the rectangle like the measures is %.2f", polygonArea(option));
+        }
+        
     } else {
         printf("\nYou must enter valid data.");
     }
     
+    return 0;
 }
