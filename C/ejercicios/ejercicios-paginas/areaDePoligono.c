@@ -8,10 +8,35 @@
 
 #include <stdio.h>
 
-float polygonArea(n1, n2) {
-    
+float polygonArea(int polygon) {
+    if (polygon == 1)
+    {
+        /* code */
+    } else if (polygon == 2)
+    {
+        /* code */
+    } else if (polygon == 3)
+    {
+        /* code */
+    } else {
+        printf("\nYou must enter requered data.");
+    } 
+
+    return 0;
 }
 
 int main(void) {
+    int option;
 
+    printf("This program do the operation of calc the area of a polygon\n");
+    printf("Tell me, which polygon do you want to calc the area?\n");
+    printf("1. Triangle. 2. Square. 3. Rectangle.\n\n");
+
+    if (scanf("%d", &option) == 1)
+    {
+        polygonArea(option);
+    } else {
+        printf("\nYou must enter valid data.");
+    }
+    
 }
