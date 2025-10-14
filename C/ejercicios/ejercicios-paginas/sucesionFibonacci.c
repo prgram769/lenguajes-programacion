@@ -9,21 +9,22 @@
 #include <stdio.h>
 
 int main(void) {
-    int number, numberBefore, fibonacci, i;
-    
-    number = 1;
+    long n1, n2, fibonacci, i;
 
-    numberBefore = 0;
+    n1 = fibonacci = i = 0;
 
-    fibonacci = 0;
-    
-    for (i = 0; i <= 50; i++)
+    n2 = 1;
+
+    for (i = 0; i < 50; i++)
     {
-        printf("%d, ",fibonacci);
+        fibonacci = n1 + n2;
 
-        fibonacci = number + numberBefore;
-        
-        numberBefore = fibonacci;
+        printf("%ld, ", n1);
+
+        n1 = n2;
+
+        n2 = fibonacci;
     }
     
+    return 0;
 }

@@ -4,9 +4,9 @@
 #include <math.h>
 #include <string.h>
 
-int encodeToBinary(int number) {
-    int binaryRestArray[256];
-    int i, counter;
+int encodeToBinary(long number) {
+    long binaryRestArray[10000];
+    long i, counter;
 
     i = counter = 0;
 
@@ -23,15 +23,15 @@ int encodeToBinary(int number) {
 
     for (i = counter - 1; i >= 0; i--)
     {            
-        printf("%d", binaryRestArray[i]);
+        printf("%ld", binaryRestArray[i]);
     }
 
     return 0;
 }
 
-int encodeToOctal(int number) {
-    int octalRestArray[256];
-    int i, counter;
+int encodeToOctal(long number) {
+    long octalRestArray[10000];
+    long i, counter;
 
     i = counter = 0;
 
@@ -48,15 +48,15 @@ int encodeToOctal(int number) {
 
     for (i = counter - 1; i >= 0; i--)
     {
-        printf("%d", octalRestArray[i]);
+        printf("%ld", octalRestArray[i]);
     }
     
     return 0;
 }
 
-int encodeToHexadecimal(int number) {
-    char hexadecimalRestArray[256];
-    int i, counter;
+int encodeToHexadecimal(long number) {
+    char hexadecimalRestArray[10000];
+    long i, counter;
 
     i = counter = 0;
 
@@ -131,17 +131,17 @@ int encodeToHexadecimal(int number) {
     return 0;
 }
 
-int decodeFromBinary(int number) {
-    int arrayNumbers[256];
+int decodeFromBinary(long number) {
+    long arrayNumbers[10000];
 
-    int i;
+    long i;
 
-    int modules = 10;
-    int divisions = 1;
+    long modules = 10;
+    long divisions = 1;
 
-    int numberLengh = 0;
+    long numberLengh = 0;
 
-    int originNumber = number;
+    long originNumber = number;
 
     while (number != 0)
     {
@@ -152,11 +152,11 @@ int decodeFromBinary(int number) {
                     
     number = originNumber;
 
-    int counter;
+    long counter;
 
-    int TNF = 0;
+    long TNF = 0;
 
-    int validateGood = 0;
+    long validateGood = 0;
 
     for (i = 0; i < numberLengh; i++)
     {   
@@ -187,7 +187,7 @@ int decodeFromBinary(int number) {
 
     if (validateGood == 1)
     {
-        printf("\n\nThe number that you introduced in binary, in decimal is %d.", TNF);
+        printf("\n\nThe number that you introduced in binary, in decimal is %ld.", TNF);
     } else {
         printf("\nYou must run again the program if you want decode any number.");
     }
@@ -195,17 +195,17 @@ int decodeFromBinary(int number) {
     return 0;
 }
 
-int decodeFromOctal(int number) {
-    int arrayNumbers[256];
+int decodeFromOctal(long number) {
+    long arrayNumbers[10000];
 
-    int i;
+    long i;
 
-    int modules = 10;
-    int divisions = 1;
+    long modules = 10;
+    long divisions = 1;
 
-    int numberLengh = 0;
+    long numberLengh = 0;
 
-    int originNumber = number;
+    long originNumber = number;
 
     while (number != 0)
     {
@@ -216,11 +216,11 @@ int decodeFromOctal(int number) {
     
     number = originNumber;
 
-    int counter;
+    long counter;
 
-    int TNF = 0;
+    long TNF = 0;
 
-    int validateGood;
+    long validateGood;
 
     for (i = 0; i < numberLengh; i++)
     {
@@ -252,7 +252,7 @@ int decodeFromOctal(int number) {
 
     if (validateGood == 1)
     {
-        printf("\n\nThe number that you introduced in octal, in decimal is %d.", TNF);
+        printf("\n\nThe number that you introduced in octal, in decimal is %ld.", TNF);
     } else {
         printf("\nYou must run again the program if you want decode any number.");
     }
@@ -261,13 +261,13 @@ int decodeFromOctal(int number) {
 }
 
 int decodeFromHexadecimal(char number[]) {
-    int i, counter;
-    int arrayLengh = strlen(number);
-    int arrayNumbers[arrayLengh];
+    long i, counter;
+    long arrayLengh = strlen(number);
+    long arrayNumbers[arrayLengh];
 
     char individualNumber;
 
-    int TNF = 0;
+    long TNF = 0;
 
     counter = arrayLengh - 1;
 
@@ -315,7 +315,7 @@ int decodeFromHexadecimal(char number[]) {
         TNF += arrayNumbers[i];
     }
     
-    printf("The number that you introduced in hexadecimal in decimal is: %d", TNF);
+    printf("The number that you introduced in hexadecimal in decimal is: %ld", TNF);
 
     return 0;
 }
@@ -330,7 +330,7 @@ int main(void) {
     {
         if (option == 1)
         {
-            int numberToEncode;
+            long numberToEncode;
 
             printf("\nWhich system do you want to encode from decimal?\n1. Binary. 2. Octal. 3. Hexadecimal. 4. Exit.\n\n");
 
@@ -340,7 +340,7 @@ int main(void) {
                 {
                     printf("\nWelcome to de encode system, you have to enter the number that you want to encode in binary:\n\n");
                     
-                    if (scanf("%d", &numberToEncode) == 1)
+                    if (scanf("%ld", &numberToEncode) == 1)
                     {
                         encodeToBinary(numberToEncode);
                     } else {
@@ -351,7 +351,7 @@ int main(void) {
                 {
                     printf("\nWelcome to de encode system, you have to enter the number that you want to encode in octal:\n\n");
 
-                    if (scanf("%d", &numberToEncode) == 1)
+                    if (scanf("%ld", &numberToEncode) == 1)
                     {
                         encodeToOctal(numberToEncode);
                     } else {
@@ -362,7 +362,7 @@ int main(void) {
                 {
                     printf("\nWelcome to de encode system, you have to enter the number that you want to encode in hexadecimal:\n\n");
 
-                    if (scanf("%d", &numberToEncode) == 1)
+                    if (scanf("%ld", &numberToEncode) == 1)
                     {
                         encodeToHexadecimal(numberToEncode);
                     } else {
@@ -384,7 +384,7 @@ int main(void) {
             
         } else if (option == 2)
         {
-            int numberToDecode;
+            long numberToDecode;
 
             printf("\nWhat what system do you want to decode to decimal:\n1. Binary. 2. Octal. 3.Hexadecimal. 4.Exit.\n\n");
 
@@ -394,7 +394,7 @@ int main(void) {
                 {
                     printf("\nWelcome to decode system, you have to enter the number that you want to decode from binary:\n\n");
 
-                    if (scanf("%d", &numberToDecode) == 1)
+                    if (scanf("%ld", &numberToDecode) == 1)
                     {
                         decodeFromBinary(numberToDecode);   
                     } else {
@@ -403,7 +403,7 @@ int main(void) {
                 } else if (option == 2) {
                     printf("\nWelcome to decode system, you have to enter the number that you want to decode from octal:\n\n");
 
-                    if (scanf("%d", &numberToDecode) == 1)
+                    if (scanf("%ld", &numberToDecode) == 1)
                     {
                         decodeFromOctal(numberToDecode);
                     } else {
@@ -411,7 +411,7 @@ int main(void) {
                     }
                 
                 } else if (option == 3) {
-                    const int maxLengh = 256;
+                    const long maxLengh = 10000;
 
                     char numberToDecode[maxLengh];
 
