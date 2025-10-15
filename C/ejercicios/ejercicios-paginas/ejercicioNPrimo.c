@@ -4,22 +4,28 @@
  */
 
 #include <stdio.h>
-#include <math.h>
 
 int main(void) {
-    int primeNumber, i;
+    int i, counter, j;
 
-    primeNumber = i;
-
-    for (i = 0; i <= 100; i++)
+    for (i = 2; i <= 100; i++)
     {
-        if (primeNumber > 2)
+        counter = 0;
+
+        for (j = 1; j <= 100; j++)
         {
-            if ()
+            if (i % j == 0)
             {
-                /* code */
+                counter++;
             }
             
+        }
+
+        if (counter == 2)
+        {
+            printf("%d es un numero primo.\n", i);
+        } else {
+            printf("%d no es un numero primo.\n", i);
         }
         
     }
