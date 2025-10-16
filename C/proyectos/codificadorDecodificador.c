@@ -4,9 +4,9 @@
 #include <math.h>
 #include <string.h>
 
-int encodeToBinary(long number) {
-    long binaryRestArray[10000];
-    long i, counter;
+int encodeToBinary(long int number) {
+    long int binaryRestArray[10000];
+    int i, counter;
 
     i = counter = 0;
 
@@ -29,9 +29,9 @@ int encodeToBinary(long number) {
     return 0;
 }
 
-int encodeToOctal(long number) {
-    long octalRestArray[10000];
-    long i, counter;
+int encodeToOctal(long int number) {
+    long int octalRestArray[10000];
+    int i, counter;
 
     i = counter = 0;
 
@@ -54,9 +54,9 @@ int encodeToOctal(long number) {
     return 0;
 }
 
-int encodeToHexadecimal(long number) {
+int encodeToHexadecimal(long int number) {
     char hexadecimalRestArray[10000];
-    long i, counter;
+    int i, counter;
 
     i = counter = 0;
 
@@ -131,17 +131,17 @@ int encodeToHexadecimal(long number) {
     return 0;
 }
 
-int decodeFromBinary(long number) {
-    long arrayNumbers[10000];
+int decodeFromBinary(long int number) {
+    long int arrayNumbers[10000];
 
-    long i;
+    int i;
 
-    long modules = 10;
-    long divisions = 1;
+    int modules = 10;
+    int divisions = 1;
 
-    long numberLengh = 0;
+    int numberLengh = 0;
 
-    long originNumber = number;
+    long int originNumber = number;
 
     while (number != 0)
     {
@@ -152,11 +152,11 @@ int decodeFromBinary(long number) {
                     
     number = originNumber;
 
-    long counter;
+    int counter;
 
-    long TNF = 0;
+    long int TNF = 0;
 
-    long validateGood = 0;
+    int validateGood = 0;
 
     for (i = 0; i < numberLengh; i++)
     {   
@@ -196,16 +196,16 @@ int decodeFromBinary(long number) {
 }
 
 int decodeFromOctal(long number) {
-    long arrayNumbers[10000];
+    long int arrayNumbers[10000];
 
-    long i;
+    int i;
 
-    long modules = 10;
-    long divisions = 1;
+    int modules = 10;
+    int divisions = 1;
 
-    long numberLengh = 0;
+    int numberLengh = 0;
 
-    long originNumber = number;
+    long int originNumber = number;
 
     while (number != 0)
     {
@@ -216,11 +216,11 @@ int decodeFromOctal(long number) {
     
     number = originNumber;
 
-    long counter;
+    int counter;
 
-    long TNF = 0;
+    long int TNF = 0;
 
-    long validateGood;
+    int validateGood;
 
     for (i = 0; i < numberLengh; i++)
     {
@@ -261,13 +261,13 @@ int decodeFromOctal(long number) {
 }
 
 int decodeFromHexadecimal(char number[]) {
-    long i, counter;
-    long arrayLengh = strlen(number);
-    long arrayNumbers[arrayLengh];
+    int i, counter;
+    int arrayLengh = strlen(number);
+    long int arrayNumbers[arrayLengh];
 
     char individualNumber;
 
-    long TNF = 0;
+    long int TNF = 0;
 
     counter = arrayLengh - 1;
 
@@ -330,7 +330,7 @@ int main(void) {
     {
         if (option == 1)
         {
-            long numberToEncode;
+            long int numberToEncode;
 
             printf("\nWhich system do you want to encode from decimal?\n1. Binary. 2. Octal. 3. Hexadecimal. 4. Exit.\n\n");
 
@@ -384,7 +384,7 @@ int main(void) {
             
         } else if (option == 2)
         {
-            long numberToDecode;
+            long int numberToDecode;
 
             printf("\nWhat what system do you want to decode to decimal:\n1. Binary. 2. Octal. 3.Hexadecimal. 4.Exit.\n\n");
 
