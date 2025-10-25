@@ -35,6 +35,13 @@ int main(void) {
     int amount = readAmount();
     int *numbers = malloc(amount * sizeof(int));
 
+    if (numbers == NULL)
+    {
+        fprintf(stderr, "Out of memory, exiting.\n");
+
+        exit(1);
+    }
+    
     read(amount, numbers);
     print(amount, numbers);
 
