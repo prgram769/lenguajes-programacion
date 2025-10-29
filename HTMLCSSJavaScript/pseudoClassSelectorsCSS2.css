@@ -1,0 +1,22 @@
+nav p::first-line {
+    font-size: 150%;
+    color: blueviolet;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+article p:first-child::first-line {
+    font-size: 150%;
+    color: orangered;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+article::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-color: brown;
+    border: 4px solid lawngreen;
+}

@@ -1,0 +1,14 @@
+article p:first-child {
+    font-size: 120%;
+    font-weight: bold;
+}
+
+article a:visited, article a:link {
+    color: blue;
+    font-weight: bold;
+}
+
+article a:hover {
+    color: pink;
+    font-size: 200px;
+}
