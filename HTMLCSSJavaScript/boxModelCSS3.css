@@ -1,0 +1,24 @@
+.mainContainerBox {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  margin: 2px;
+  padding: 5px;
+  border: 5px solid black;
+}
+
+/* El css de arriba añade el padding, margen y borde de forma adicional al ancho y altura del div, mientras que el css de abajo añade dichas propiedades siguiendo y tomando como maximo de anchura y de altura los valores ya definidos */
+
+.mainContainerAlternativeBox {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  margin: 2px;
+  padding: 5px;
+  border: 5px solid red;
+}
