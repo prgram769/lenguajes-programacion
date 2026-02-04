@@ -10,29 +10,16 @@ public class LoopsEj15 {
   public static void main(String[] args) {
     System.out.println("What number do you want to use like base?");
 
-    double base = Double.parseDouble(System.console().readLine());
+    double staticBase = Double.parseDouble(System.console().readLine());
 
     System.out.println("Right, now what number do you want to use like exponent?");
 
     int exponent = Integer.parseInt(System.console().readLine());
-
-    ArrayList<Double> myNumberList = new ArrayList<Double>();
-
-    double test;
-    double tempTest = base;
+    
+    double base = staticBase;
 
     for (int i = 1; i <= exponent; i++) {
-      for (int b = 1; b < i; b++) {
-        test = tempTest * exponent;
-
-        tempTest = test * exponent;
-      }
-      myNumberList.add(test);
-
-    }
-
-    for (Double i : myNumberList) {
-      System.out.println(i);
+      System.out.println(base *= staticBase);
     }
   }
 }
