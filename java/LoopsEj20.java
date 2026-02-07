@@ -1,10 +1,8 @@
-/*Realiza un programa que pinte una pirámide por pantalla. La altura se debe
-pedir por teclado. El carácter con el que se pinta la pirámide también se debe
-pedir por teclado.*/
+/*Igual que el ejercicio anterior pero esta vez se debe pintar una pirámide hueca.*/
 
 import java.util.Scanner;
 
-public class LoopsEj19 {
+public class LoopsEj20 {
   public static void main(String[] args) {
     Scanner read = new Scanner(System.in);
 
@@ -24,13 +22,17 @@ public class LoopsEj19 {
       }
 
       for (int charac = 0; charac < (2 * i - 1); charac++) {
-        System.out.print(character);
-
+        if (charac == 0 || charac == (2 * i - 2) || i == hight - 1) {
+          System.out.print(character);
+        } else {
+          System.out.print(" ");
+        }
       }
 
       System.out.print("\n");
     }
 
     read.close();
+
   }
 }
