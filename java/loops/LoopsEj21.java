@@ -8,42 +8,66 @@ import java.util.Scanner;
 
 public class LoopsEj21 {
   public static void main(String[] args) {
-    System.out.println("Enter a number");
+    int number = 0;
+    int biggerEven;
+    int oddSum = 0;
+    int oddCounter = 0;
+    int oddAverage = 0;
 
     Scanner read = new Scanner(System.in);
 
-    double number = read.nextDouble();
-
-    if (number < 0) {
-      return;
-    }
-
-    ArrayList<Double> numbers = new ArrayList<Double>();
-
-    numbers.add(number);
-
-    int counter = 1;
+    ArrayList<Integer> numberList = new ArrayList<>();
 
     while (number >= 0) {
-      System.out.println("Enter other number:");
+      if (numberList.size() < 1) {
+        System.out.println("Enter a number:");
+      } else {
+        System.out.println("Enter another number:");
+      }
 
-      number = read.nextDouble();
+      number = read.nextInt();
 
-      numbers.add(number);
+      if (number < 0 && numberList.size() == 0) {
+        System.err.println("You must enter positive numbers.");
 
-      counter++;
-    }
+        read.close();
 
-    double sum = 0;
+        return;
+      } else if (number < 0) {
+        break;
+      }
 
-    for (Double i : numbers) {
-      if (i % 2 != 0) {
-        sum += i;
+      numberList.add(number);
+
+      if (number % 2 != 0) {
+        oddCounter++;
+
+        oddSum += number;
       }
     }
 
-    double oddAverage = sum / counter;
+    biggerEven = numberList.get(0);
 
-    System.out.println("The odd average is " + oddAverage);
+    for (Integer i : numberList) {
+      if (i % 2 == 0 && biggerEven < i) {
+        biggerEven = i;
+      }
+    }
+
+    try {
+      oddAverage = oddSum / oddCounter;
+
+      System.out.println("The odd's average is " + oddAverage);
+    } catch (Exception e) {
+      System.out.println("There isn't any odd number in the list");
+    }
+
+    if (biggerEven % 2 == 0) {
+      System.out.println("The bigger even is " + biggerEven);
+    } else {
+      System.out.println("There isn't any even number in the list");
+    }
+
+    read.close();
   }
 }
