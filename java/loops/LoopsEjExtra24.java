@@ -7,39 +7,26 @@
 
 import java.util.Scanner;
 
-public class LoopsEj24 {
+public class LoopsEjExtra24 {
   public static void main(String[] args) {
     Scanner read = new Scanner(System.in);
 
     System.out.print("Enter the number of the rows of the pyramid: ");
 
     int rows = read.nextInt();
-    int counter = 1;
-
-    boolean isRecentlySame = false;
 
     for (int i = 0; i < rows; i++) {
       for (int spaces = 0; spaces < rows - i; spaces++) {
         System.out.print(" ");
       }
 
-      counter = i;
-
       for (int charac = 0; charac < (2 * i - 1); charac++) {
-        if (counter < i && !isRecentlySame) {
-          counter++;
+        if (charac < i) {
+          System.out.print(charac + 1);
         } else if (charac >= i) {
-          counter--;
-
-          isRecentlySame = true;
-        } else {
-          counter = 1;
+          System.out.print(2 * i - charac - 1);
         }
-
-        System.out.print(counter);
       }
-
-      isRecentlySame = false;
 
       System.out.print("\n");
     }
