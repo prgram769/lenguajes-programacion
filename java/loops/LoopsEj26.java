@@ -24,9 +24,9 @@ public class LoopsEj26 {
       return;
     }
 
-    for (int i = 0; i < numberDigit.length(); i++) {
-      if (stringNumber.contains(numberDigit)) {
-        System.out.printf("The digit in the number take up the %d position or the %dº digit of the number", stringNumber.indexOf(numberDigit), stringNumber.indexOf(numberDigit) + 1);
+    for (int i = 0; i < stringNumber.length(); i++) {
+      if (stringNumber.charAt(i) == numberDigit.charAt(0)) {
+        System.out.printf("The digit in the number take up the %d position or the %dº digit of the number\n", i,i + 1);
       }
     }
 
