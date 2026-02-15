@@ -23,71 +23,56 @@ public class LoopsEj30 {
 
     String weekDay = read.nextLine();
 
-    String[] week = {"Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Saturday", "Sunday"};
+    String[] week = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
 
-    if (weekDay.length() == 1 && weekDay.charAt(0) > 7 || !Arrays.asList(week).contains(weekDay)) {
-      System.out.println("That day doesn't exist.");
+    System.out.println(weekDay.charAt(0));
 
-      read.close();
+    int dayNumber = 0;
 
-      return;
-    } else {
-      System.out.println(weekDay);
+    try {
+      dayNumber = Integer.parseInt(weekDay);
+
+      if (dayNumber < 1 || dayNumber > 7) {
+        System.err.println("That day doesn't exist.");
+
+        read.close();
+
+        return;
+      }
+    } catch (Exception e) {
+      if (!Arrays.asList(week).contains(weekDay.toLowerCase())) {
+        System.err.println("That day doesn't exist.");
+
+        read.close();
+
+        return;
+      } else {
+        switch (weekDay.toLowerCase()) {
+          case "monday":
+            dayNumber = 1;
+            break;
+          case "tuesday":
+            dayNumber = 2;
+            break;
+          case "wednesday":
+            dayNumber = 3;
+            break;
+          case "thursday":
+            dayNumber = 4;
+            break;
+          case "friday":
+            dayNumber = 5;
+            break;
+          case "saturday":
+            dayNumber = 6;
+            break;
+          case "sunday":
+            dayNumber = 7;
+            break;
+        }
+      }
     }
-    // if (weekDay.length() == 1) {
-    //   switch (weekDay) {
-    //     case "1":
-    //
-    //       break;
-    //     case "2":
-    //
-    //       break;
-    //     case "3":
-    //
-    //       break;
-    //     case "4":
-    //
-    //       break;
-    //     case "5":
-    //
-    //       break;
-    //     case "6":
-    //
-    //       break;
-    //     case "7":
-    //
-    //       break;
-    //     default:
-    //       System.out.println("That day doesn't exist.");
-    //       break;
-    //   }
-    // } else {
-    //   switch (weekDay) {
-    //     case "Monday":
-    //
-    //       break;
-    //     case "Tuesday":
-    //
-    //       break;
-    //     case "Wednesday":
-    //
-    //       break;
-    //     case "Thursday":
-    //
-    //       break;
-    //     case "Friday":
-    //
-    //       break;
-    //     case "Saturday":
-    //
-    //       break;
-    //     case "Sunday":
-    //
-    //       break;
-    //     default:
-    //       System.out.println("That day doesn't exist.");
-    //       break;
-    //   }
+    
 
 
     read.close();
