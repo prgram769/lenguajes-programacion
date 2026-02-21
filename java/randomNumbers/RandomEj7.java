@@ -4,8 +4,6 @@ nas para los 14 partidos y el pleno al quince (15 filas).*/
 public class RandomEj7 {
   public static void main(String[] args) {
     int betCounter = 1;
-    int localCounter = 0;
-    int visitorCounter = 0;
 
     for (int i = 0; i < 3; i++) {
       System.out.printf(" ".repeat(5) + "|--Bet %d--|", betCounter);
@@ -15,15 +13,9 @@ public class RandomEj7 {
 
     System.out.println();
 
-    for (int i = 0; i < 14; i++) {
-      for (int j = 0; j < 3; j++) {
+    for (int rows = 0; rows < 14; rows++) {
+      for (int columns = 0; columns < 3; columns++) {
         int randomNumberCol = (int) (Math.random() * 3);
-
-        if (randomNumberCol == 2) {
-          visitorCounter++;
-        } else if (randomNumberCol == 1) {
-          localCounter++;
-        }
 
         if (randomNumberCol == 0) {
           System.out.printf(" ".repeat(10) + "X" + "\t");
@@ -32,17 +24,25 @@ public class RandomEj7 {
           System.out.printf(" ".repeat(10) + randomNumberCol + "\t");
         }
       }
-
       System.out.println();
-    }
 
-    int spaces = 3;
+      if (rows == 13) {
+        for (int i = 0; i < 3; i++) {
+          System.out.printf(" ".repeat(6) + "|-Full-|" + "\t");
+        }
 
-    for (int i = 0; i < 3; i++) {
-      System.out.printf(" ".repeat(spaces) + "|-Full fifteen-|");
+        System.out.println();
 
+        for (int i = 0; i < 3; i++) {
+          int randomNumberFull = (int) (Math.random() * 3);
 
-      spaces--;
+          if (randomNumberFull == 0) {
+            System.out.printf(" ".repeat(10) + "X" + "\t");
+          } else {
+            System.out.printf(" ".repeat(10) + randomNumberFull + "\t");
+          }
+        }
+      }
     }
   }
 }
