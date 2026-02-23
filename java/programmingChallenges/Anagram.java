@@ -8,7 +8,6 @@
  */
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Anagram {
@@ -31,13 +30,12 @@ public class Anagram {
       return;
     }
 
-    String[] word1Arr = word1.split("");
-    String[] word2Arr = word2.split("");
+    char[] word1Sorted = word1.toCharArray();
+    char[] word2Sorted = word2.toCharArray();
 
-    // System.out.println(word1Arr);
-    // System.out.println(word2Arr);
+    Arrays.sort(word1Sorted);
+    Arrays.sort(word2Sorted);
 
-    Arrays.sort(word1Arr, Collections.reverseOrder());
 
     read.close();
   }
