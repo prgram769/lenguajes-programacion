@@ -22,8 +22,16 @@ public class Anagram {
 
     String word2 = read.nextLine();
 
+    if (word1.equals(word2)) {
+      System.err.println("These words aren't anagrams.");
+
+      read.close();
+
+      return;
+    }
+
     if (word1.length() != word2.length()) {
-      System.out.println("These words aren't anagrams.");
+      System.err.println("These words aren't anagrams.");
 
       read.close();
 
@@ -36,6 +44,19 @@ public class Anagram {
     Arrays.sort(word1Sorted);
     Arrays.sort(word2Sorted);
 
+    int test = 0;
+
+    for (int i = 0; i < word1Sorted.length; i++) {
+      if (word1Sorted[i] == word2Sorted[i]) {
+        test++;
+      }
+    }
+
+    if (test == word1Sorted.length) {
+      System.out.println("These words are anagrams.");
+    } else {
+      System.err.println("These words aren't anagrams.");
+    }
 
     read.close();
   }
