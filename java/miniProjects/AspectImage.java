@@ -1,15 +1,15 @@
 /*Program which calc the aspect ratio of an image from an URL or file*/
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
 public class AspectImage {
-  public static int[] getDataFromURL(String url) {
+  public static int getDataFromURL(String url) {
     try {
       URL imageUrl = new URL(url);
 
@@ -17,44 +17,124 @@ public class AspectImage {
 
       BufferedImage myImage = ImageIO.read(connection.getInputStream());
 
-      int val1 = myImage.getWidth();
-      int val2 = myImage.getHeight();
+      double aspectRatio = (double) myImage.getWidth() / (double) myImage.getHeight();
+
+      double[] aspects = { Math.abs(1.78 - aspectRatio), Math.abs(0.80 - aspectRatio), Math.abs(1.33 - aspectRatio),
+          Math.abs(1.5 - aspectRatio), Math.abs(1.25 - aspectRatio), Math.abs(1.67 - aspectRatio) };
+
+      double[] aspectsSorted = aspects.clone();
+
+      Arrays.sort(aspectsSorted);
+
+      int index = 0;
+
+      for (int i = 0; i < aspects.length; i++) {
+        if (aspects[i] == aspectsSorted[0]) {
+          index = i;
+
+          break;
+        }
+      }
 
       connection.disconnect();
 
-      return new int[] { val1, val2 };
+      return index;
     } catch (Exception e) {
-      System.err.println(e);
+      System.err.println("You must enter a valid image route or a valid image URL when you call the program like AspectImage <imageRoute/imageURL>");
 
-      return new int[] {};
+      return 0;
     }
   }
 
   public static void main(String[] args) {
     try {
+      System.out.println("|--Aspect ratio calculator--|\n");
       if (args[0].contains("http")) {
-        int[] dimensions = getDataFromURL(args[0]);
+        int index = getDataFromURL(args[0]);
+
+        switch (index) {
+          case 0:
+            System.out.println("The rough aspect ratio of this image is 16:9");
+
+            break;
+          case 1:
+            System.out.println("The rough aspect ratio of this image is 4:5");
+
+            break;
+          case 2:
+            System.out.println("The rough aspect ratio of this image is 4:3");
+
+            break;
+          case 3:
+            System.out.println("The rough aspect ratio of this image is 3:2");
+
+            break;
+          case 4:
+            System.out.println("The rough aspect ratio of this image is 5:4");
+
+            break;
+          case 5:
+            System.out.println("The rough aspect ratio of this image is 5:3");
+
+            break;
+        }
+        System.out.println("\nMade with ❤️ by rugby01");
 
         return;
       }
 
       BufferedImage myImage = ImageIO.read(new File(args[0]));
 
-      System.out.println(myImage.getWidth());
-      System.out.println(myImage.getHeight());
-
       double aspectRatio = (double) myImage.getWidth() / (double) myImage.getHeight();
-
-      System.out.println(aspectRatio);
 
       double[] aspects = { Math.abs(1.78 - aspectRatio), Math.abs(0.80 - aspectRatio), Math.abs(1.33 - aspectRatio),
           Math.abs(1.5 - aspectRatio), Math.abs(1.25 - aspectRatio), Math.abs(1.67 - aspectRatio) };
 
-      if (condition) {
-        
+      double[] aspectsSorted = aspects.clone();
+
+      Arrays.sort(aspectsSorted);
+
+      int index = 0;
+
+      for (int i = 0; i < aspects.length; i++) {
+        if (aspects[i] == aspectsSorted[0]) {
+          index = i;
+
+          break;
+        }
+      }
+
+      switch (index) {
+        case 0:
+          System.out.println("The rough aspect ratio of this image is 16:9");
+
+          break;
+        case 1:
+          System.out.println("The rough aspect ratio of this image is 4:5");
+
+          break;
+        case 2:
+          System.out.println("The rough aspect ratio of this image is 4:3");
+
+          break;
+        case 3:
+          System.out.println("The rough aspect ratio of this image is 3:2");
+
+          break;
+        case 4:
+          System.out.println("The rough aspect ratio of this image is 5:4");
+
+          break;
+        case 5:
+          System.out.println("The rough aspect ratio of this image is 5:3");
+
+          break;
       }
     } catch (Exception e) {
-      System.err.println(e);
+      System.err.println("You must enter a valid image route or a valid image URL when you call the program like AspectImage <imageRoute/imageURL>");
     }
+    System.out.println("\nMade with ❤️ by rugby01");
   }
 }
+
+// made by rugby01
