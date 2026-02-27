@@ -1,33 +1,34 @@
 /*Mini project to scrap webs*/
 
-import java.net.URL;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.util.regex.Pattern;
 
 public class WebScrapper {
   public static void main(String[] args) {
     try {
-      URL testURL = new URL("http://example.com");
+      HttpClient client = HttpClient.newBuilder()
+          .followRedirects(HttpClient.Redirect.ALWAYS)
+          .build();
 
-      HttpURLConnection myURLConnection = (HttpURLConnection) testURL.openConnection();
+      HttpRequest request = HttpRequest.newBuilder()
+          .uri(new URI("http://iesruizgijon.com"))
+          .GET()
+          .build();
 
-      BufferedReader in = new BufferedReader(
-          new InputStreamReader(myURLConnection.getInputStream()));
-      String inputLine;
+      HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+      
+      String html = response.body();
 
-      StringBuffer content = new StringBuffer();
+      Pattern pattern = Pattern.compile("<title>(.*?)</title>");
 
-      while ((inputLine = in.readLine()) != null) {
-        content.append(inputLine);
-      }
+      System.out.println(pattern);
 
-      in.close();
-
-      myURLConnection.disconnect();
-
-      System.out.println(content.toString());
     } catch (Exception e) {
+      System.err.println(e);
     }
   }
 }
