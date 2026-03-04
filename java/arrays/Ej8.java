@@ -19,6 +19,11 @@ public class Ej8 {
 
     // TODO hacer el grafico mediante un bucle interior y otro exterior de forma que pueda tener un grafico horizontal
 
+    // Enero      | ██████████ (10)
+    // Febrero    | █████████████████████████ (25)
+    // Marzo      | ███████████████ (15)
+    // Abril      | ██████████████████████████████ (30)
+
     read.close();
   }
 }
