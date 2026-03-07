@@ -19,20 +19,35 @@ public class EjB2 {
       }
     }
 
-    // for (int i = 0; i < nums.length; i++) {
-    // for (int j = 0; j < nums[0].length; j++) {
-    // System.out.println(nums[i][j]);
-    // }
-    // }
+    int rowResult = 0;
+    int[] columnResults = new int[nums[0].length];
+    int total = 0;
 
     for (int r = 0; r < nums.length; r++) {
+      rowResult = 0;
+
       for (int c = 0; c < nums[0].length; c++) {
+        rowResult += nums[r][c];
+        columnResults[c] += nums[r][c];
+
         System.out.printf("%10d", nums[r][c]);
       }
-      System.out.printf("%3s %5s %d", "| ", "Row ", r);
+      System.out.printf("%3s %d %5s %d", "| ", rowResult, "Row ", r);
 
       System.out.println();
     }
+
+    for (int i = 0; i < columnResults.length; i++) {
+      System.out.printf("%d %s %d ", columnResults[i], "Column", i);
+    }
+
+    for (int i = 0; i < columnResults.length; i++) {
+      total += columnResults[i];
+    }
+
+    total += rowResult;
+
+    System.out.printf(" Total %d\n", total);
 
     read.close();
   }
