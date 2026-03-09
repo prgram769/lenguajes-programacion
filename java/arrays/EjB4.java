@@ -8,7 +8,7 @@ public class EjB4 {
     Scanner read = new Scanner(System.in);
 
     System.out.print("How many rows do you want? ");
-    
+
     int rows = read.nextInt();
 
     System.out.print("How many columns do you want? ");
@@ -25,21 +25,41 @@ public class EjB4 {
 
     for (int r = 0; r < map.length; r++) {
       for (int c = 0; c < map[0].length; c++) {
-        map[r][c] = (int)(Math.random() * 3);
+        map[r][c] = (int) (Math.random() * 3);
+        //
+        // if (map[r][c] == 2) {
+        // treasure--;
+        // }
+        //
+        // if (map[r][c] == 2 && treasure == -1) {
+        // map[r][c] = (int)(Math.random() * 2);
+        // }
+        //
+        // if (map[r][c] == 1) {
+        // mines--;
+        // }
+        //
+        // if (map[r][c] == 1 && mines == - 1) {
+        // map[r][c] = 0;
+        // }
+      }
+    }
 
+    for (int r = 0; r < map.length; r++) {
+      for (int c = 0; c < map[0].length; c++) {
         if (map[r][c] == 2) {
           treasure--;
-        }
+        } 
 
-        if (map[r][c] == 2 && treasure == -1) {
-          map[r][c] = (int)(Math.random() * 2);
+        if (map[r][c] == 2 && treasure < 0) {
+          map[r][c] = (int) (Math.random() * 2);
         }
 
         if (map[r][c] == 1) {
           mines--;
-        }
-
-        if (map[r][c] == 1 && mines == - 1) {
+        } 
+        
+        if (map[r][c] == 1 && mines < 0) {
           map[r][c] = 0;
         }
       }
