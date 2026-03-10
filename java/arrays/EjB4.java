@@ -26,22 +26,6 @@ public class EjB4 {
     for (int r = 0; r < map.length; r++) {
       for (int c = 0; c < map[0].length; c++) {
         map[r][c] = (int) (Math.random() * 3);
-        //
-        // if (map[r][c] == 2) {
-        // treasure--;
-        // }
-        //
-        // if (map[r][c] == 2 && treasure == -1) {
-        // map[r][c] = (int)(Math.random() * 2);
-        // }
-        //
-        // if (map[r][c] == 1) {
-        // mines--;
-        // }
-        //
-        // if (map[r][c] == 1 && mines == - 1) {
-        // map[r][c] = 0;
-        // }
       }
     }
 
@@ -49,19 +33,20 @@ public class EjB4 {
       for (int c = 0; c < map[0].length; c++) {
         if (map[r][c] == 2) {
           treasure--;
-        } 
 
-        if (map[r][c] == 2 && treasure < 0) {
-          map[r][c] = (int) (Math.random() * 2);
+          if (treasure < 0) {
+            map[r][c] = (int) (Math.random() * 2);
+          }
         }
 
         if (map[r][c] == 1) {
           mines--;
-        } 
-        
-        if (map[r][c] == 1 && mines < 0) {
-          map[r][c] = 0;
+
+          if (map[r][c] == 1 && mines < 0) {
+            map[r][c] = 0;
+          }
         }
+
       }
     }
 
