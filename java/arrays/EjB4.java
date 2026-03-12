@@ -50,13 +50,23 @@ public class EjB4 {
       }
     }
 
+    int[] coordenates = new int[2];
+
     for (int i = 0; i < map.length; i++) {
       for (int j = 0; j < map[0].length; j++) {
+        if (map[i][j] == 2) {
+          coordenates[0] = i;
+          coordenates[1] = j;
+        }
+
         System.out.printf("%d ", map[i][j]);
       }
 
       System.out.println();
     }
+    System.out.println(coordenates[0]);
+    System.out.println(coordenates[1]);
+
     read.close();
   }
 }
