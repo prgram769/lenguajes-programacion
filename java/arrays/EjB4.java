@@ -64,6 +64,19 @@ public class EjB4 {
 
       System.out.println();
     }
+    try {
+      if (coordenates[0] == map[0][0] || coordenates[0] == map[0][map[0].length - 1]) {
+        // if (map[coordenates[0]][coordenates[1] - 1] == 1 || map[coordenates[0]][coordenates[1] + 1] == 1) {
+        //   System.out.println("bomba");
+        // } else if (map[coordenates[0 - 1]][coordenates[1]] == 1 || map[coordenates[0 + 1]][coordenates[1]] == 1) {
+        //   System.out.println("bomba row");
+        // }
+System.out.println("s");
+      }
+    } catch (Exception e) {
+      System.err.println(e);
+    }
+
     System.out.println(coordenates[0]);
     System.out.println(coordenates[1]);
 
