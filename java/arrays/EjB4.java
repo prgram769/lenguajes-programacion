@@ -65,13 +65,13 @@ public class EjB4 {
       System.out.println();
     }
     try {
-      if (coordenates[0] == map[0][0] || coordenates[0] == map[0][map[0].length - 1]) {
-        // if (map[coordenates[0]][coordenates[1] - 1] == 1 || map[coordenates[0]][coordenates[1] + 1] == 1) {
-        //   System.out.println("bomba");
-        // } else if (map[coordenates[0 - 1]][coordenates[1]] == 1 || map[coordenates[0 + 1]][coordenates[1]] == 1) {
-        //   System.out.println("bomba row");
-        // }
-System.out.println("s");
+      if (coordenates[0] == map.length - 1 || coordenates[0] == 0 || coordenates[1] == map[0].length - 1 || coordenates[1] == 0) {
+        if (coordenates[0] == 0) {
+          if (map[coordenates[0] + 1][coordenates[0]] == 1 || map[coordenates[0]][coordenates[1] - 1] == 1 || map[coordenates[0]][coordenates[1] + 1] == 1) {
+            System.out.println("bomba");
+          }
+        }
+        System.out.println("s");
       }
     } catch (Exception e) {
       System.err.println(e);
