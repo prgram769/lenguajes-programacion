@@ -18,7 +18,7 @@ public class EjB4 {
     System.out.print("How many mines do you want? ");
 
     int mines = read.nextInt();
-
+    int bombs = mines;
     int treasure = 1;
 
     int[][] map = new int[rows][columns];
@@ -52,27 +52,50 @@ public class EjB4 {
 
     int[] coordenates = new int[2];
 
-    for (int i = 0; i < map.length; i++) {
-      for (int j = 0; j < map[0].length; j++) {
-        if (map[i][j] == 2) {
-          coordenates[0] = i;
-          coordenates[1] = j;
+    for (int r = 0; r < map.length; r++) {
+      for (int c = 0; c < map[0].length; c++) {
+        if (map[r][c] == 2) {
+          coordenates[0] = r;
+          coordenates[1] = c;
         }
 
-        System.out.printf("%d ", map[i][j]);
+        System.out.printf("%d ", map[r][c]);
       }
 
       System.out.println();
     }
     try {
-      if (coordenates[0] == map.length - 1 || coordenates[0] == 0 || coordenates[1] == map[0].length - 1 || coordenates[1] == 0) {
-        if (coordenates[0] == 0) {
-          if (map[coordenates[0] + 1][coordenates[0]] == 1 || map[coordenates[0]][coordenates[1] - 1] == 1 || map[coordenates[0]][coordenates[1] + 1] == 1) {
-            System.out.println("bomba");
+      // if (coordenates[0] == map.length - 1 || coordenates[0] == 0 || coordenates[1] == map[0].length - 1 || coordenates[1] == 0) {
+      //   if (coordenates[0] == 0) {
+      //     if (map[coordenates[0] + 1][coordenates[0]] == 1 || map[coordenates[0]][coordenates[1] - 1] == 1 || map[coordenates[0]][coordenates[1] + 1] == 1) {
+      //       System.out.println("bomba");
+      //     }
+      //   }
+      //   System.out.println("s");
+      // }
+
+      int[][] bombsCoords = new int[bombs][2];
+
+      int bombCounter = 0;
+
+      for (int r = 0; r < map.length; r++) {
+        for (int c = 0; c < map[0].length; c++) {
+          if (map[r][c] == 1) {
+            bombsCoords[bombCounter][0] = r;
+            bombsCoords[bombCounter][1] = c;
+
+            bombCounter++;
           }
         }
-        System.out.println("s");
       }
+
+      // for (int i = 0; i < bombsCoords.length; i++) {
+      //   for (int k = 0; k < bombsCoords[0].length; k++) {
+      //     System.out.printf("Row: %d, Column: %d\n");
+      //   }
+      // }
+
+      System.out.printf("Row: %d, Column: %d\n", bombsCoords[0][0], bombsCoords[0][1]);
     } catch (Exception e) {
       System.err.println(e);
     }
