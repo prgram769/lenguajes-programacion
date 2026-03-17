@@ -89,11 +89,14 @@ public class EjB4 {
         }
       }
 
-      // for (int i = 0; i < bombsCoords.length; i++) {
-      //   for (int k = 0; k < bombsCoords[0].length; k++) {
-      //     System.out.printf("Row: %d, Column: %d\n");
-      //   }
-      // }
+      bombCounter = 0;
+
+      while (bombCounter != bombs) {
+        if (bombsCoords[bombCounter][0] == coordenates[0] - 1 || bombsCoords[bombCounter][0] == coordenates[0] + 1) {
+          System.out.println("TEST");
+        }
+        bombCounter++;
+      }
 
       System.out.printf("Row: %d, Column: %d\n", bombsCoords[0][0], bombsCoords[0][1]);
     } catch (Exception e) {
