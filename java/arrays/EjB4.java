@@ -65,25 +65,18 @@ public class EjB4 {
       System.out.println();
     }
     try {
-      // if (coordenates[0] == map.length - 1 || coordenates[0] == 0 || coordenates[1] == map[0].length - 1 || coordenates[1] == 0) {
-      //   if (coordenates[0] == 0) {
-      //     if (map[coordenates[0] + 1][coordenates[0]] == 1 || map[coordenates[0]][coordenates[1] - 1] == 1 || map[coordenates[0]][coordenates[1] + 1] == 1) {
-      //       System.out.println("bomba");
-      //     }
-      //   }
-      //   System.out.println("s");
-      // }
-
-      int[][] bombsCoords = new int[bombs][2];
+      int[][] bombStorage = new int[bombs][1];
+      int[] bombsCoords = new int[2];
 
       int bombCounter = 0;
 
       for (int r = 0; r < map.length; r++) {
         for (int c = 0; c < map[0].length; c++) {
           if (map[r][c] == 1) {
-            bombsCoords[bombCounter][0] = r;
-            bombsCoords[bombCounter][1] = c;
+            bombsCoords[0] = r;
+            bombsCoords[1] = c;
 
+            bombStorage[bombCounter] = bombsCoords;
             bombCounter++;
           }
         }
@@ -92,13 +85,14 @@ public class EjB4 {
       bombCounter = 0;
 
       while (bombCounter != bombs) {
-        if (bombsCoords[bombCounter][0] == coordenates[0] - 1 || bombsCoords[bombCounter][0] == coordenates[0] + 1) {
-          System.out.println("TEST");
+        if (bombsCoords[0] == coordenates[0] - 1 && bombsCoords[1] == coordenates[1] || bombsCoords[0] == coordenates[0] + 1 && bombsCoords[1] == coordenates[1] || bombsCoords[1] == coordenates[1] - 1 || bombsCoords[1] == coordenates[1] + 1) {
+          System.out.println("There is a bomb near.");
         }
+
         bombCounter++;
       }
 
-      System.out.printf("Row: %d, Column: %d\n", bombsCoords[0][0], bombsCoords[0][1]);
+      System.out.printf("Row: %d, Column: %d\n", bombsCoords[0], bombsCoords[1]);
     } catch (Exception e) {
       System.err.println(e);
     }
