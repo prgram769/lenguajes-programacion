@@ -92,6 +92,8 @@ public class EjB4 {
         bombCounter++;
       }
 
+      // TODO necesito hacer que me pida unas coordenadas y me verifique si es el premio, ademas si en una casilla de alrededor hay minas que me diga que hay una mina cerca y ademas que el usuario tenga 3 intentos
+
       System.out.printf("Row: %d, Column: %d\n", bombsCoords[0], bombsCoords[1]);
     } catch (Exception e) {
       System.err.println(e);
