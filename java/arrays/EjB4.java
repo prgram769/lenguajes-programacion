@@ -59,45 +59,65 @@ public class EjB4 {
           coordenates[1] = c;
         }
 
-        System.out.printf("%d ", map[r][c]);
+        // System.out.printf("%d ", map[r][c]);
+      }
+
+      // System.out.println();
+    }
+    // try {
+    //   int[][] bombStorage = new int[bombs][1];
+    //   int[] bombsCoords = new int[2];
+    //
+    //   int bombCounter = 0;
+    //
+    //   for (int r = 0; r < map.length; r++) {
+    //     for (int c = 0; c < map[0].length; c++) {
+    //       if (map[r][c] == 1) {
+    //         bombsCoords[0] = r;
+    //         bombsCoords[1] = c;
+    //
+    //         bombStorage[bombCounter] = bombsCoords;
+    //         bombCounter++;
+    //       }
+    //     }
+    //   }
+    //
+    //   bombCounter = 0;
+    //
+    //   while (bombCounter != bombs) {
+    //     if (bombsCoords[0] == coordenates[0] - 1 && bombsCoords[1] == coordenates[1] || bombsCoords[0] == coordenates[0] + 1 && bombsCoords[1] == coordenates[1] || bombsCoords[1] == coordenates[1] - 1 || bombsCoords[1] == coordenates[1] + 1) {
+    //       System.out.println("There is a bomb near.");
+    //     }
+    //
+    //     bombCounter++;
+    //   }
+
+    for (int r = 0; r < map.length; r++) {
+      for (int c = 0; c < map[0].length; c++) {
+        System.out.print("X ");
       }
 
       System.out.println();
     }
-    try {
-      int[][] bombStorage = new int[bombs][1];
-      int[] bombsCoords = new int[2];
+    
+    System.out.println("Tell me the coordenates where you want search the treasure:");
 
-      int bombCounter = 0;
+    int[] userCoordenates = new int[2];
 
-      for (int r = 0; r < map.length; r++) {
-        for (int c = 0; c < map[0].length; c++) {
-          if (map[r][c] == 1) {
-            bombsCoords[0] = r;
-            bombsCoords[1] = c;
+    System.out.print("Row: ");
 
-            bombStorage[bombCounter] = bombsCoords;
-            bombCounter++;
-          }
-        }
-      }
+    userCoordenates[0] = read.nextInt();
 
-      bombCounter = 0;
+    System.out.print("Column: ");
 
-      while (bombCounter != bombs) {
-        if (bombsCoords[0] == coordenates[0] - 1 && bombsCoords[1] == coordenates[1] || bombsCoords[0] == coordenates[0] + 1 && bombsCoords[1] == coordenates[1] || bombsCoords[1] == coordenates[1] - 1 || bombsCoords[1] == coordenates[1] + 1) {
-          System.out.println("There is a bomb near.");
-        }
-
-        bombCounter++;
-      }
+    userCoordenates[1] = read.nextInt();
 
       // TODO necesito hacer que me pida unas coordenadas y me verifique si es el premio, ademas si en una casilla de alrededor hay minas que me diga que hay una mina cerca y ademas que el usuario tenga 3 intentos
 
-      System.out.printf("Row: %d, Column: %d\n", bombsCoords[0], bombsCoords[1]);
-    } catch (Exception e) {
-      System.err.println(e);
-    }
+    //   System.out.printf("Row: %d, Column: %d\n", bombsCoords[0], bombsCoords[1]);
+    // } catch (Exception e) {
+    //   System.err.println(e);
+    // }
 
     System.out.println(coordenates[0]);
     System.out.println(coordenates[1]);
