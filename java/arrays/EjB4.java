@@ -112,7 +112,33 @@ public class EjB4 {
 
     userCoordenates[1] = read.nextInt();
 
-      // TODO necesito hacer que me pida unas coordenadas y me verifique si es el premio, ademas si en una casilla de alrededor hay minas que me diga que hay una mina cerca y ademas que el usuario tenga 3 intentos
+    int opportunities = 3;
+
+    for (int r = 0; r < map.length; r++) {
+      for (int c = 0; c < map[0].length; c++) {
+      }
+    }
+    while (opportunities != 0) {
+      if (userCoordenates[0] == coordenates[0] && userCoordenates[1] == coordenates[1]) {
+        System.out.println("Congratulations, you find the treasure.");
+
+        read.close();
+
+        return;
+      }
+
+      System.out.printf("Your coordenates aren't right. You still have %d opportunities.\n", opportunities);
+      System.out.print("Enter new row: ");
+
+      userCoordenates[0] = read.nextInt();
+
+      System.out.print("Enter new column: ");
+
+      userCoordenates[1] = read.nextInt();
+
+      opportunities--;
+    }
+    // TODO necesito hacer que me pida unas coordenadas y me verifique si es el premio, ademas si en una casilla de alrededor hay minas que me diga que hay una mina cerca y ademas que el usuario tenga 3 intentos
 
     //   System.out.printf("Row: %d, Column: %d\n", bombsCoords[0], bombsCoords[1]);
     // } catch (Exception e) {
