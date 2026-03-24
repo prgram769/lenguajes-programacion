@@ -65,32 +65,35 @@ public class EjB4 {
       // System.out.println();
     }
     // try {
-    //   int[][] bombStorage = new int[bombs][1];
-    //   int[] bombsCoords = new int[2];
+    // int[][] bombStorage = new int[bombs][1];
+    // int[] bombsCoords = new int[2];
     //
-    //   int bombCounter = 0;
+    // int bombCounter = 0;
     //
-    //   for (int r = 0; r < map.length; r++) {
-    //     for (int c = 0; c < map[0].length; c++) {
-    //       if (map[r][c] == 1) {
-    //         bombsCoords[0] = r;
-    //         bombsCoords[1] = c;
+    // for (int r = 0; r < map.length; r++) {
+    // for (int c = 0; c < map[0].length; c++) {
+    // if (map[r][c] == 1) {
+    // bombsCoords[0] = r;
+    // bombsCoords[1] = c;
     //
-    //         bombStorage[bombCounter] = bombsCoords;
-    //         bombCounter++;
-    //       }
-    //     }
-    //   }
+    // bombStorage[bombCounter] = bombsCoords;
+    // bombCounter++;
+    // }
+    // }
+    // }
     //
-    //   bombCounter = 0;
+    // bombCounter = 0;
     //
-    //   while (bombCounter != bombs) {
-    //     if (bombsCoords[0] == coordenates[0] - 1 && bombsCoords[1] == coordenates[1] || bombsCoords[0] == coordenates[0] + 1 && bombsCoords[1] == coordenates[1] || bombsCoords[1] == coordenates[1] - 1 || bombsCoords[1] == coordenates[1] + 1) {
-    //       System.out.println("There is a bomb near.");
-    //     }
+    // while (bombCounter != bombs) {
+    // if (bombsCoords[0] == coordenates[0] - 1 && bombsCoords[1] == coordenates[1]
+    // || bombsCoords[0] == coordenates[0] + 1 && bombsCoords[1] == coordenates[1]
+    // || bombsCoords[1] == coordenates[1] - 1 || bombsCoords[1] == coordenates[1] +
+    // 1) {
+    // System.out.println("There is a bomb near.");
+    // }
     //
-    //     bombCounter++;
-    //   }
+    // bombCounter++;
+    // }
 
     for (int r = 0; r < map.length; r++) {
       for (int c = 0; c < map[0].length; c++) {
@@ -99,35 +102,14 @@ public class EjB4 {
 
       System.out.println();
     }
-    
+
     System.out.println("Tell me the coordenates where you want search the treasure:");
 
     int[] userCoordenates = new int[2];
 
-    System.out.print("Row: ");
-
-    userCoordenates[0] = read.nextInt();
-
-    System.out.print("Column: ");
-
-    userCoordenates[1] = read.nextInt();
-
     int opportunities = 3;
 
-    for (int r = 0; r < map.length; r++) {
-      for (int c = 0; c < map[0].length; c++) {
-      }
-    }
     while (opportunities != 0) {
-      if (userCoordenates[0] == coordenates[0] && userCoordenates[1] == coordenates[1]) {
-        System.out.println("Congratulations, you find the treasure.");
-
-        read.close();
-
-        return;
-      }
-
-      System.out.printf("Your coordenates aren't right. You still have %d opportunities.\n", opportunities);
       System.out.print("Enter new row: ");
 
       userCoordenates[0] = read.nextInt();
@@ -136,13 +118,29 @@ public class EjB4 {
 
       userCoordenates[1] = read.nextInt();
 
+      if (userCoordenates[0] == coordenates[0] && userCoordenates[1] == coordenates[1]) {
+        System.out.println("Congratulations, you find the treasure.");
+
+        read.close();
+
+        return;
+      }
+
+      System.out.printf("Your coordenates aren't right. You still have %d opportunities.\n", opportunities - 1);
+
+      if (userCoordenates[0] == 0 || userCoordenates[0] == map.length) {
+        System.out.println("test");
+      }
+
       opportunities--;
     }
-    // TODO necesito hacer que me pida unas coordenadas y me verifique si es el premio, ademas si en una casilla de alrededor hay minas que me diga que hay una mina cerca y ademas que el usuario tenga 3 intentos
+    // TODO necesito hacer que me pida unas coordenadas y me verifique si es el
+    // premio, ademas si en una casilla de alrededor hay minas que me diga que hay
+    // una mina cerca y ademas que el usuario tenga 3 intentos
 
-    //   System.out.printf("Row: %d, Column: %d\n", bombsCoords[0], bombsCoords[1]);
+    // System.out.printf("Row: %d, Column: %d\n", bombsCoords[0], bombsCoords[1]);
     // } catch (Exception e) {
-    //   System.err.println(e);
+    // System.err.println(e);
     // }
 
     System.out.println(coordenates[0]);
