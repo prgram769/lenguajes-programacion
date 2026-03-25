@@ -18,7 +18,6 @@ public class EjB4 {
     System.out.print("How many mines do you want? ");
 
     int mines = read.nextInt();
-    int bombs = mines;
     int treasure = 1;
 
     int[][] map = new int[rows][columns];
@@ -64,36 +63,6 @@ public class EjB4 {
 
       // System.out.println();
     }
-    // try {
-    // int[][] bombStorage = new int[bombs][1];
-    // int[] bombsCoords = new int[2];
-    //
-    // int bombCounter = 0;
-    //
-    // for (int r = 0; r < map.length; r++) {
-    // for (int c = 0; c < map[0].length; c++) {
-    // if (map[r][c] == 1) {
-    // bombsCoords[0] = r;
-    // bombsCoords[1] = c;
-    //
-    // bombStorage[bombCounter] = bombsCoords;
-    // bombCounter++;
-    // }
-    // }
-    // }
-    //
-    // bombCounter = 0;
-    //
-    // while (bombCounter != bombs) {
-    // if (bombsCoords[0] == coordenates[0] - 1 && bombsCoords[1] == coordenates[1]
-    // || bombsCoords[0] == coordenates[0] + 1 && bombsCoords[1] == coordenates[1]
-    // || bombsCoords[1] == coordenates[1] - 1 || bombsCoords[1] == coordenates[1] +
-    // 1) {
-    // System.out.println("There is a bomb near.");
-    // }
-    //
-    // bombCounter++;
-    // }
 
     for (int r = 0; r < map.length; r++) {
       for (int c = 0; c < map[0].length; c++) {
@@ -108,6 +77,17 @@ public class EjB4 {
     int[] userCoordenates = new int[2];
 
     int opportunities = 3;
+
+    // for (int i = 0; i < map.length; i++) {
+    //   for (int j = 0; j < map[0].length; j++) {
+    //     if (i == 0 || i == map.length - 1 || j == 0 || j == map[0].length - 1) {
+    //       System.out.print("X ");
+    //     } else {
+    //       System.out.print(". ");
+    //     }
+    //   }
+    //   System.out.println();
+    // }
 
     while (opportunities != 0) {
       System.out.print("Enter new row: ");
@@ -128,20 +108,33 @@ public class EjB4 {
 
       System.out.printf("Your coordenates aren't right. You still have %d opportunities.\n", opportunities - 1);
 
-      if (userCoordenates[0] == 0 || userCoordenates[0] == map.length) {
-        System.out.println("test");
+      Boolean mineNear = false;
+
+      try {
+        if (userCoordenates[0] > 0 && map[userCoordenates[0] - 1][userCoordenates[1]] == 1) {
+          mineNear = true;
+        }
+
+        if (userCoordenates[0] < map.length - 1 && map[userCoordenates[0] + 1][userCoordenates[1]] == 1) {
+          mineNear = true;
+        }
+
+        if (userCoordenates[1] > 0 && map[userCoordenates[0]][userCoordenates[1] - 1] == 1) {
+          mineNear = true;
+        }
+
+        if (userCoordenates[1] < map[0].length && map[userCoordenates[0]][userCoordenates[1] + 1] == 1) {
+          mineNear = true;
+        }
+      } catch (Exception e) {
+      }
+
+      if (mineNear == true) {
+        System.out.println("There are bombs near.");
       }
 
       opportunities--;
     }
-    // TODO necesito hacer que me pida unas coordenadas y me verifique si es el
-    // premio, ademas si en una casilla de alrededor hay minas que me diga que hay
-    // una mina cerca y ademas que el usuario tenga 3 intentos
-
-    // System.out.printf("Row: %d, Column: %d\n", bombsCoords[0], bombsCoords[1]);
-    // } catch (Exception e) {
-    // System.err.println(e);
-    // }
 
     System.out.println(coordenates[0]);
     System.out.println(coordenates[1]);
