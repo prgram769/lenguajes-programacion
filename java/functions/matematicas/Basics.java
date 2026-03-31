@@ -94,19 +94,29 @@ public class Basics {
 
   /*Cuenta el número de dígitos de un número entero.*/
   public static int numberLength(int number) {
+    if (number == 0) {
+      return 1;
+    }
+
+    if (number < 0) {
+      number = -number;
+    }
+
     int counter = 0;
     int tempNumber = number;
 
-    for (int i = 0; i < number; i++) {
-      if (number != 0) {
-        tempNumber /= 10;
-        
-        counter++;
-      } else {
-        break;
-      }
+    while (tempNumber != 0) {
+      tempNumber /= 10;
+      
+      counter++;
     }
 
     return counter;
+  }
+
+  /*Le da la vuelta a un número.*/
+
+  public static int upsideDownNumber(int number) {
+    int 
   }
 }
