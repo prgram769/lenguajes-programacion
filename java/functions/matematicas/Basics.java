@@ -67,12 +67,46 @@ public class Basics {
       nextNumber++;
     }
   }
-  /*Dada una base y un exponente devuelve la potencia.*/
+  /*dada una base y un exponente devuelve la potencia.*/
   public static double powFunction(double base, int exponent) {
-    double finalNumber = 0;
+    double finalNumber = 1;
+    
+    if (exponent == 0) {
+      return 1.0;
+    }
+
+    if (exponent < 0) {
+      for (int i = 0; i < -exponent; i++) {
+        finalNumber *= base;
+      }
+
+      finalNumber = 1 / finalNumber;
+
+      return finalNumber;
+    }
 
     for (int i = 0; i < exponent; i++) {
-      
+      finalNumber *= base;
     }
+
+    return finalNumber;
+  }
+
+  /*Cuenta el número de dígitos de un número entero.*/
+  public static int numberLength(int number) {
+    int counter = 0;
+    int tempNumber = number;
+
+    for (int i = 0; i < number; i++) {
+      if (number != 0) {
+        tempNumber /= 10;
+        
+        counter++;
+      } else {
+        break;
+      }
+    }
+
+    return counter;
   }
 }

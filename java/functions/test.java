@@ -4,6 +4,6 @@ class test {
   public static void main(String[] args) {
     int number = Integer.parseInt(args[0]);
 
-    System.out.println(Basics.nextPrime(number));
+    System.out.println(Basics.numberLength(number));
   }
 }
