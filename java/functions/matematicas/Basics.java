@@ -117,6 +117,41 @@ public class Basics {
   /*Le da la vuelta a un número.*/
 
   public static int upsideDownNumber(int number) {
-    int 
+    int tempNumber = number;
+    int newNumber = 0;
+
+    int counter = 0;
+    int falseNumber = number;
+
+    while (falseNumber != 0) {
+      falseNumber /= 10;
+
+      counter++;
+    }
+
+    for (int i = 0; i < counter; i++) {
+      newNumber *= 10;
+
+      newNumber += tempNumber % 10;
+
+      tempNumber /= 10;
+    }
+
+    return newNumber;
+  }
+
+  /*Devuelve el dígito que está en la posición n de un número
+entero. Se empieza contando por el 0 y de izquierda a derecha.*/
+
+  public static int digitPosition(int number) {
+    int counter = 0;
+    int tempNumber = number;
+
+    while (tempNumber != 0) {
+      tempNumber /= 10;
+
+      counter++;
+    }
+
   }
 }
