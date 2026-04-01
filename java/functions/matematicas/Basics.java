@@ -67,6 +67,7 @@ public class Basics {
       nextNumber++;
     }
   }
+
   /*dada una base y un exponente devuelve la potencia.*/
   public static double powFunction(double base, int exponent) {
     double finalNumber = 1;
@@ -115,7 +116,6 @@ public class Basics {
   }
 
   /*Le da la vuelta a un número.*/
-
   public static int upsideDownNumber(int number) {
     int tempNumber = number;
     int newNumber = 0;
@@ -142,16 +142,16 @@ public class Basics {
 
   /*Devuelve el dígito que está en la posición n de un número
 entero. Se empieza contando por el 0 y de izquierda a derecha.*/
-
-  public static int digitPosition(int number) {
-    int counter = 0;
+  public static int digitPosition(int number, int nDigit) {
     int tempNumber = number;
+    int digit = 0;
 
-    while (tempNumber != 0) {
-      tempNumber /= 10;
-
-      counter++;
+    for (int i = 0; i < nDigit; i++) {
+      tempNumber = tempNumber / 10;
     }
+   
+    return tempNumber;
 
+    // return((int)1.566);
   }
 }
