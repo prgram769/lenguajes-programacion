@@ -68,10 +68,10 @@ public class Basics {
     }
   }
 
-  /*dada una base y un exponente devuelve la potencia.*/
+  /* dada una base y un exponente devuelve la potencia. */
   public static double powFunction(double base, int exponent) {
     double finalNumber = 1;
-    
+
     if (exponent == 0) {
       return 1.0;
     }
@@ -93,7 +93,7 @@ public class Basics {
     return finalNumber;
   }
 
-  /*Cuenta el número de dígitos de un número entero.*/
+  /* Cuenta el número de dígitos de un número entero. */
   public static int numberLength(int number) {
     if (number == 0) {
       return 1;
@@ -108,14 +108,14 @@ public class Basics {
 
     while (tempNumber != 0) {
       tempNumber /= 10;
-      
+
       counter++;
     }
 
     return counter;
   }
 
-  /*Le da la vuelta a un número.*/
+  /* Le da la vuelta a un número. */
   public static int upsideDownNumber(int number) {
     int tempNumber = number;
     int newNumber = 0;
@@ -140,18 +140,46 @@ public class Basics {
     return newNumber;
   }
 
-  /*Devuelve el dígito que está en la posición n de un número
-entero. Se empieza contando por el 0 y de izquierda a derecha.*/
+  /*
+   * Devuelve el dígito que está en la posición n de un número
+   * entero. Se empieza contando por el 0 y de izquierda a derecha.
+   */
   public static int digitPosition(int number, int nDigit) {
     int tempNumber = number;
     int digit = 0;
+    int division = 1;
+    int counter = 0;
+
+    while (tempNumber != 0) {
+      tempNumber /= 10;
+
+      counter++;
+    }
+
+    tempNumber = number;
+
+    for (int i = 0; i < counter - 1; i++) {
+      division *= 10;
+    }
 
     for (int i = 0; i < nDigit; i++) {
-      tempNumber = tempNumber / 10;
+      division /= 10;
     }
-   
-    return tempNumber;
 
-    // return((int)1.566);
+    try {
+      tempNumber = tempNumber / division;
+
+      digit = tempNumber % 10;
+
+      return digit;
+    } catch (Exception e) {
+      return 0;
+    }
+  }
+
+  public static int nPosition(int number, int digit) {
+    String numbers[] = {Integer.toString(number)};
+
+    return Integer.parseInt(numbers[digit]);
   }
 }
