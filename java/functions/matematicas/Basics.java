@@ -177,9 +177,39 @@ public class Basics {
     }
   }
 
+  /*
+   * Da la posición de la primera ocurrencia de un dígito
+   * dentro de un número entero. Si no se encuentra, devuelve -1.
+   */
   public static int nPosition(int number, int digit) {
-    String numbers[] = {Integer.toString(number)};
+    String numbers = Integer.toString(number);
 
-    return Integer.parseInt(numbers[digit]);
+    try {
+      int digitPosition = numbers.indexOf(Integer.toString(digit));
+
+      return numbers.indexOf(Integer.toString(digit));
+    } catch (Exception e) {
+      return -1;
+    }
+  }
+
+  /*Le quita a un número n dígitos por detrás (por la
+derecha).*/
+  public static int extractBackNumbers(int number, int digitsToExtract) {
+    double tempNumber = number;
+
+    tempNumber = tempNumber / powFunction(10, digitsToExtract);
+
+    return (int) tempNumber;
+  }
+
+  /*Le quita a un número n dígitos por delante (por la
+izquierda).*/
+  public static int extractFrontNumbers(int number, int digitsToExtract) {
+    double tempNumber = number;
+
+    int newDigits = 0;
+
+    // TODO tendria que hacer el modulo de la longitud del numero menos los digitos que quiero extraer
   }
 }
