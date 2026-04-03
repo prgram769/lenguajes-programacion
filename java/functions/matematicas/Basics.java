@@ -206,10 +206,79 @@ derecha).*/
   /*Le quita a un número n dígitos por delante (por la
 izquierda).*/
   public static int extractFrontNumbers(int number, int digitsToExtract) {
-    double tempNumber = number;
+    int tempNumber = number;
+    int counter = 0;
 
-    int newDigits = 0;
+    while (tempNumber != 0) {
+      tempNumber /= 10;
 
-    // TODO tendria que hacer el modulo de la longitud del numero menos los digitos que quiero extraer
+      counter++;
+    }
+
+    double falseNumber = number;
+    double newDigits = 0;
+
+    newDigits = falseNumber % powFunction(10, counter - digitsToExtract);
+
+    return (int)newDigits;
+  }
+
+  /*Añade un dígito a un número por detrás.*/
+  public static int pasteBackNumbers(int number, int numberToPaste) {
+    int tempNumber = number;
+    int tempNumberPasted = numberToPaste;
+    int pastedCounter = 0;
+
+    while (tempNumberPasted != 0) {
+      tempNumberPasted /= 10;
+
+      pastedCounter++;
+    }
+
+    tempNumberPasted = numberToPaste;
+
+    int[] numbersToPaste = new int[pastedCounter];
+    int division = 10;
+
+    for (int i = 0; i < pastedCounter; i++) {
+      numbersToPaste[i] = tempNumberPasted % 10;
+
+      tempNumberPasted /= 10;
+    }
+
+    for (int i = pastedCounter - 1; i >= 0; i--) {
+      tempNumber *= 10;
+
+      tempNumber += numbersToPaste[i];
+    }
+
+    return tempNumber;
+  }
+
+  /*Añade un dígito a un número por delante.*/
+  public static int pasteFrontNumbers(int number, int numberToPaste) {
+    int tempNumber = number;
+    int tempNumberPasted = numberToPaste;
+    int counter = 0;
+
+    while (tempNumber != 0) {
+      tempNumber /= 10;
+
+      counter++;
+    }
+
+    for (int i = 0; i < counter; i++) {
+      tempNumberPasted *= 10;
+    }
+
+    tempNumberPasted += number;
+
+    return tempNumberPasted;
+  }
+
+  /*Toma como parámetros las posiciones inicial y final
+dentro de un número y devuelve el trozo correspondiente.*/
+  public static int initFinishPosition(int number) {
+
   }
 }
