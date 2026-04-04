@@ -1,6 +1,7 @@
 package matematicas;
 
 public class Basics {
+
   /*
    * Devuelve verdadero si el número que se pasa como pará-
    * metro es capicúa y falso en caso contrario.
@@ -279,6 +280,64 @@ izquierda).*/
   /*Toma como parámetros las posiciones inicial y final
 dentro de un número y devuelve el trozo correspondiente.*/
   public static int initFinishPosition(int number) {
+    int tempNumber = number;
+    int counter = 0;
 
+    while (tempNumber != 0) {
+      tempNumber /= 10;
+
+      counter++;
+    }
+
+    if (counter == 1) {
+      return number;
+    }
+    
+    tempNumber = number;
+
+    int finalDigit = tempNumber % 10;
+
+    for (int i = 0; i < counter - 1; i++) {
+      tempNumber /= 10;
+    }
+
+    int initDigit = tempNumber % 10;
+    int newNumber = initDigit;
+
+    newNumber *= 10;
+    newNumber += finalDigit;
+
+    return newNumber;
+  }
+
+  /*Pega dos números para formar uno.*/
+  public static int pasteTwoNumbers(int number1, int number2) {
+    int tempNumber1 = number1;
+    int tempNumber2 = number2;
+    int counter = 0;
+
+    if (number1 == 0) {
+      return number2;
+    }
+
+    if (number2 == 0) {
+      tempNumber1 *= 10;
+    }
+
+    while (tempNumber2 != 0) {
+      tempNumber2 /= 10;
+
+      counter++;
+    }
+
+    tempNumber2 = number2;
+
+    for (int i = 0; i < counter; i++) {
+      tempNumber1 *= 10;
+    }
+
+    tempNumber1 += number2;
+
+    return tempNumber1;
   }
 }
