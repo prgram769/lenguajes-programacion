@@ -10,5 +10,10 @@ public class Ej2 {
     myProduct.setPrice(0.99);
 
     System.out.printf("This product is %s and it cost %.2f$\n", myProduct.getName(), myProduct.getPrice());
+
+    myProduct.setName("tomatoes");
+    myProduct.setPrice(-3.2);
+
+    System.out.printf("This product is %s and it cost %.2f$\n", myProduct.getName(), myProduct.getPrice());
   }
 }
