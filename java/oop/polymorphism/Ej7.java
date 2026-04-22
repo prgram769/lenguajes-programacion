@@ -3,6 +3,18 @@
 
 public class Ej7 {
   public static void main(String[] args) {
-     
-  }  
+    Animal myAnimal = new Animal("Generic");
+    Dog myDog = new Dog("Mammal");
+    Cat myCat = new Cat("Mammal");
+    Horse myHorse = new Horse("Mammal");
+
+    showAnimalType(myAnimal);
+    showAnimalType(myCat);
+    showAnimalType(myDog);
+    showAnimalType(myHorse);
+  }
+  
+  public static void showAnimalType(Animal animal) {
+    System.out.println(animal.getType());
+  }
 }

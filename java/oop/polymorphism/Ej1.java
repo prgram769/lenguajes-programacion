@@ -3,10 +3,10 @@
 
 public class Ej1 {
   public static void main(String[] args) {
-    Animal myAnimal = new Animal();
-    Dog myDog = new Dog();
-    Cat myCat = new Cat();
-    Cow myCow = new Cow();
+    Animal myAnimal = new Animal("Generic");
+    Dog myDog = new Dog("Mammal");
+    Cat myCat = new Cat("Mammal");
+    Cow myCow = new Cow("Mammal");
 
     myAnimal.makeSound();
     myDog.makeSound();
