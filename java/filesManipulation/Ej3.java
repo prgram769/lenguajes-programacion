@@ -32,11 +32,25 @@ public class Ej3 {
 
       BufferedWriter bw = new BufferedWriter(new FileWriter(myFile.getParent().concat("/").concat(myFile.getName())));
 
-      long totalLines = brFile1.lines().count() + brFile2.lines().count();
+      String line1, line2;
 
-      for (int i = 0; i < totalLines; i++) {
-        bw.write(brFile1.readLine());
-        bw.write(brFile2.readLine());
+      while (true) {
+        line1 = brFile1.readLine();
+        line2 = brFile2.readLine();
+
+        if (line1 == null && line2 == null) {
+          break;
+        }
+
+        if (line1 != null) {
+          bw.write(line1);
+          bw.newLine();
+        }
+
+        if (line2 != null) {
+          bw.write(line2);
+          bw.newLine();
+        }
       }
 
       brFile1.close();
