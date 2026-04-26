@@ -23,7 +23,13 @@ public class Ej5 {
       while ((c = br.read()) != -1) {
         switch ((char) c) {
           case 0:
-            
+            if ((char) c == '/') {
+              int c2 = br.read();
+
+              if ((char) c2 == '/' || (char) c2 == '*') {
+                System.out.println("Hay comentario");  
+              }
+            }
             break;
           case 1:
 
