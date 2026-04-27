@@ -18,16 +18,24 @@ public class Ej5 {
       BufferedReader br = new BufferedReader(new FileReader(args[0]));
 
       int c;
+      int state = 0;
 
-      
       while ((c = br.read()) != -1) {
-        switch ((char) c) {
+        switch (state) {
           case 0:
             if ((char) c == '/') {
               int c2 = br.read();
 
-              if ((char) c2 == '/' || (char) c2 == '*') {
-                System.out.println("Hay comentario");  
+              if ((char) c2 == '/') {
+                System.out.println("Hay comentario");
+
+                state = 1;
+              } else if ((char) c2 == '*') {
+                System.out.println("Hay comentario");
+                
+                state = 2;
+              } else {
+                
               }
             }
             break;
