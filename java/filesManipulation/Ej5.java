@@ -1,7 +1,9 @@
 package filesManipulation;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 /*Ejercicio 5
 Escribe un programa capaz de quitar los comentarios de un programa de Java.
@@ -16,6 +18,7 @@ public class Ej5 {
   public static void main(String[] args) {
     try {
       BufferedReader br = new BufferedReader(new FileReader(args[0]));
+      BufferedWriter bw = new BufferedWriter(new FileWriter(args[0]));
 
       int c;
       int state = 0;
@@ -35,12 +38,18 @@ public class Ej5 {
                 
                 state = 2;
               } else {
-                
+                bw.write((char) c);
+
+                if (c2 != -1) {
+                  bw.write((char) c2);
+                }
               }
+            } else {
+              bw.write((char) c);
             }
             break;
           case 1:
-
+            
             break;
           default:
             break;
@@ -48,6 +57,7 @@ public class Ej5 {
       }
       
       br.close();
+      bw.close();
     } catch (Exception e) {
       System.err.println(e);
     }
